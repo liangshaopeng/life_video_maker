@@ -55,3 +55,15 @@ def draw_pitch(img):
 def new_frame():
     """全屏 navy 底帧(RGBA)。"""
     return Image.new("RGBA", (W, H), tuple(C("navy")) + (255,))
+
+def draw_player(img, nx, ny, team="red", label=""):
+    """在归一化坐标处画一名球员:实心圆点+白描边,可选标签。team: red(进攻)/blue(防守)。"""
+    d = ImageDraw.Draw(img)
+    px, py = to_px(nx, ny)
+    r = 26
+    col = tuple(C("warn")) if team == "red" else tuple(C("sky"))
+    d.ellipse([px-r, py-r, px+r, py+r], fill=col + (255,), outline=(255,255,255,255), width=4)
+    if label:
+        fnt = font("b", 30)
+        d.text((px, py), label, font=fnt, fill=(255,255,255,255), anchor="mm")
+    return img
