@@ -1,0 +1,67 @@
+{
+  "name": "france-2026",
+  "output_dir": ".",
+  "build_dir": "build",
+  "footage_default": "footage/mbappe_fr.mp4",
+  "voice": { "name": "zh-CN-YunjianNeural", "rate": "+20%", "pitch": "+16Hz", "volume": "+15%" },
+  "theme": { "sky": [64,102,178], "gold": [252,209,50], "navy": [9,16,44], "warn": [220,60,64] },
+  "blur_sigma": 18,
+  "bgm": { "file": "bgm/Volatile_Reaction.mp3", "start": 0, "volume": 0.25, "_duck": "sidechain thr=0.035 ratio=14 attack=6 release=350" },
+  "_note": "Les Bleus 主题。核心矛盾:姆巴佩(弧顶仙人,不回防不组织) vs 登贝莱(回撤组织,防守好)。footage.start 待缩略图墙定位后填写;speed<1=慢放。",
+  "segments": [
+    {
+      "id": "open",
+      "text": "二零一八,封王!二零二二,只差一步!朋友们,这支法国队,连续两届世界杯,杀进决赛,星光熠熠!可二零二六,他们还能不能,再次登顶?德尚的手里,藏着一个,甜蜜的烦恼!",
+      "footage": { "src": "footage/mbappe_fr.mp4", "start": 212, "speed": 1.0, "blur": [[0,0,880,160],[1175,0,745,185]] },
+      "overlay": { "layout": "title", "sup": "2026 世界杯 · 夺冠概率分析", "title": "法 兰 西", "subtitle": "蓝 衣 军 团 还 能 封 王 吗 ?" }
+    },
+    {
+      "id": "strength",
+      "text": "先看底气!锋线,姆巴佩、登贝莱、特奥!中场,琼阿梅尼、楚阿梅尼!后防,孔德、萨利巴!这套阵容的深度,全世界数一数二!这,就是顶级夺冠热门的成色!",
+      "footage": { "src": "footage/mbappe_fr.mp4", "start": 128, "speed": 1.0, "blur": [[0,0,880,160],[1175,0,745,185]] },
+      "overlay": { "layout": "chips", "kicker": "蓝 军 的 底 气", "chips": ["阵容深度 世界顶级", "三届大赛 两进决赛", "德尚 冠军教头"] }
+    },
+    {
+      "id": "mbappe",
+      "text": "可朋友们,矛盾,也藏在这里!当家球星,姆巴佩!速度无解,临门一脚,致命!但如今的他,越来越像一个,站在弧顶的仙人——只负责终结,不愿回防,也不愿拿球组织!你喂球到位,他就是世界第一;可他一旦哑火,法国这套进攻,瞬间就熄火!",
+      "footage": { "src": "footage/mbappe_fr.mp4", "start": 178, "speed": 1.0, "blur": [[0,0,880,160],[1175,0,745,185]] },
+      "overlay": { "layout": "spotlight", "kicker": "当 家 球 星 · 甜 蜜 的 负 担", "kicker_color": "warn", "big": "弧 顶 仙 人", "name": "基 利 安 · 姆 巴 佩", "chips": ["速度无解 · 顶级终结点", "不回防 · 不组织", "哑火则全队熄火"] }
+    },
+    {
+      "id": "dembele",
+      "text": "再看另一个人,登贝莱!二零二五金球先生,脱胎换骨!他能盘带过人,能中场回撤,串联全队;更难得的是,他愿意埋头逼抢,回追防守!有他在,法国的进攻,更有层次,防守,也更有保障!",
+      "footage": { "src": "footage/dembele.mp4", "start": 340, "speed": 1.0, "blur": [[1635,0,285,235]] },
+      "overlay": { "layout": "namelist", "kicker": "脱 胎 换 骨 · 金 球 先 生", "chip_w": 620, "names": ["2025 金球先生", "盘带 · 串联组织", "中场回撤 控节奏", "逼抢 · 防守有保障"] }
+    },
+    {
+      "id": "conflict",
+      "text": "那,法国最强的阵容,该怎么搭?左路杜埃,右路奥利赛!中场,再放上一两个能控制、又有硬度的工兵!骨架一搭好,矛盾就来了——锋线中路,只剩下一个位置!是留给,伪九号的仙人姆巴佩,还是,金球先生登贝莱?二选一,才是德尚,最大的难题!",
+      "footage": { "src": "footage/dembele.mp4", "start": 265, "speed": 1.0, "blur": [[1635,0,285,235]] },
+      "overlay": { "layout": "spotlight", "kicker": "最 佳 阵 容 · 中 路 二 选 一", "kicker_color": "warn", "big": "二 选 一", "name": "伪九 姆巴佩  ×  金球 贝莱", "chips": ["左杜埃 · 右奥利赛", "中场 硬度 + 控制", "中路 只剩一个位"] }
+    },
+    {
+      "id": "without",
+      "text": "于是,一个大胆的假设,出现了!如果,不上姆巴佩呢?整条战线,全员逼抢,攻守更平衡,跑动更团结!没有了那个,必须被伺候的仙人,这支法国,会不会反而更可怕?夺冠概率,会不会反而更高?",
+      "footage": { "src": "footage/dembele.mp4", "start": 130, "speed": 1.0, "blur": [[1635,0,285,235]] },
+      "overlay": { "layout": "chips", "kicker": "大 胆 假 设 · 减 法 哲 学", "chip_w": 480, "accent": "warn", "chips": ["全员逼抢·更平衡", "不必伺候·更团结", "减法·或是加法"] }
+    },
+    {
+      "id": "counter",
+      "text": "可是朋友们,话又说回来!姆巴佩,是大赛先生!二零一八,他帮助法国封王;二零二二,决赛上演帽子戏法!越是关键时刻,越需要他,一锤定音!你,真的敢把他,摁在板凳上吗?",
+      "footage": { "src": "footage/mbappe_fr.mp4", "start": 196, "speed": 0.85, "blur": [[0,0,880,160],[1175,0,745,185]] },
+      "overlay": { "layout": "spotlight", "kicker": "可 他 是 · 大 赛 先 生", "kicker_color": "gold", "big": "大 赛 先 生", "name": "基 利 安 · 姆 巴 佩", "chips": ["2018世界杯 夺冠", "2022决赛 帽子戏法", "关键时刻 他终结"] }
+    },
+    {
+      "id": "probability",
+      "text": "再加上,四十八队的全新赛制,北美的酷暑,还有西班牙、阿根廷,虎视眈眈!由DeepSeek谨慎推算,法国的夺冠概率,大约百分之十五到十八,稳居第一集团!姆巴佩用还是不用,就看德尚怎么解这道题!",
+      "footage": { "src": "footage/mbappe_fr.mp4", "start": 224, "speed": 1.0, "blur": [[0,0,880,160],[1175,0,745,185]] },
+      "overlay": { "layout": "bars", "kicker": "夺 冠 概 率 综 合 判 断", "top_chips": ["48队新赛制", "北美酷暑", "强敌环伺"], "big": "15–18%", "bars": [["法国", 16], ["西班牙", 16], ["阿根廷", 15], ["英格兰", 13], ["巴西", 11]], "highlight": "法国", "note": "* 夺冠概率由 DeepSeek 谨慎推算" }
+    },
+    {
+      "id": "ending",
+      "text": "二零二六,这道甜蜜的难题,德尚,会怎么选?朋友们,你觉得,法国应该,继续仙人姆巴佩,还是,大胆做减法?评论区,等你来战!",
+      "footage": { "src": "footage/france2018.mp4", "start": 708, "speed": 1.0, "blur": [[1490,50,330,135]] },
+      "overlay": { "layout": "end", "title": "2026 · 甜 蜜 的 难 题", "subtitle": "姆 巴 佩 该 不 该 减 ?" }
+    }
+  ]
+}

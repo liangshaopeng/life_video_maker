@@ -1,0 +1,74 @@
+{
+  "name": "portugal-2026",
+  "output_dir": ".",
+  "build_dir": "build",
+  "footage_default": "footage/portugal_unl2025.mp4",
+  "voice": { "name": "zh-CN-YunjianNeural", "rate": "+24%", "pitch": "+20Hz", "volume": "+32%" },
+  "pad": 0.22,
+  "theme": { "sky": [56,176,118], "gold": [252,209,50], "navy": [22,10,14], "warn": [222,46,52] },
+  "bgm": { "file": "bgm/We_Are_Electric.mp3", "start": 0, "volume": 0.34 },
+  "watermark": "思考的我",
+  "_note": "葡萄牙·C罗主题。情感核心=那个男人是否还在战斗。解说=最高激情(C罗段尤甚)。开头冷钩子'曲到人到那个男人来了'与BGM同起。结尾为自定义C罗特写定格(末段在 assemble 后被覆盖重建,并叠加电眼特效)。素材自备(版权)。",
+  "segments": [
+    {
+      "id": "intro",
+      "text": "曲到人到,那个男人来辣!",
+      "footage": { "src": "footage/ronaldo_wc_goals.mp4", "start": 0.3, "speed": 0.55 },
+      "overlay": { "layout": "title", "sup": "曲 到 · 人 到", "title": "那 个 男 人", "title_size": 150, "subtitle": "来 辣 !", "sub_size": 110 }
+    },
+    {
+      "id": "open",
+      "text": "二零一六年欧洲杯封王,二零一九和二零二五两夺欧国联!如今这支葡萄牙人才井喷、豪华到犯规!可所有人的目光,都死死盯着一个人——那个四十一岁的男人。他还在不在?他还能不能,再战一届世界杯?",
+      "footage": { "src": "footage/portugal_unl2025.mp4", "start": 88, "speed": 1.0 },
+      "overlay": { "layout": "title", "sup": "2026 世界杯 · 夺冠概率分析", "title": "葡 萄 牙", "subtitle": "那 个 男 人 还 在 战 斗 吗 ?" }
+    },
+    {
+      "id": "strength",
+      "text": "先看底气。中场的B费和维蒂尼亚堪称豪华,锋线的莱昂快如闪电,后防有鲁本迪亚斯坐镇。这套阵容的厚度放眼全世界都是顶级,这就是夺冠热门的成色!",
+      "footage": { "src": "footage/portugal_unl2025.mp4", "start": 200, "speed": 1.0 },
+      "overlay": { "layout": "chips", "kicker": "黄 金 一 代 · 底 气", "chips": ["阵容深度 世界顶级", "欧洲杯 + 两届欧国联", "马丁内斯 豪华手牌"] }
+    },
+    {
+      "id": "youth",
+      "text": "更可怕的是,这是葡萄牙史上最豪华的一代!维蒂尼亚和若昂内维斯刚刚跟着大巴黎捧起欧冠,而莱昂和菲利克斯正当打之年。后浪一波接一波,这支葡萄牙根本不缺人!",
+      "footage": { "src": "footage/portugal_unl2025.mp4", "start": 724, "speed": 1.0 },
+      "overlay": { "layout": "namelist", "kicker": "史 上 最 豪 华 的 一 代", "chip_w": 600, "names": ["维蒂尼亚 · 欧冠冠军", "若昂内维斯 · 新中场", "拉法莱昂 · 边路尖刀", "菲利克斯 · 当打之年"] }
+    },
+    {
+      "id": "ronaldo-age",
+      "text": "可真正的焦点,从来只有一个!二零二六年,克里斯蒂亚诺罗纳尔多,就要满四十一岁。这几乎注定是他的第六届、也是最后一届世界杯。时间,真的不等人啊!",
+      "footage": { "src": "footage/ronaldo_wc_goals.mp4", "start": 33, "speed": 1.0 },
+      "overlay": { "layout": "stat", "kicker": "时 间 · 那 个 男 人", "kicker_color": "gold", "label_sup": "C 罗 · 2026", "count_to": 41, "unit": "岁", "chips": ["第六届 世界杯", "几乎是最后一舞", "41岁 仍在首发"] }
+    },
+    {
+      "id": "ronaldo-fight",
+      "text": "就是这个四十一岁的男人!国家队进球一百三十多个,前无古人;职业生涯九百多球,还在继续!别人到了这个年纪早就躺平了,可他呢?还在玩命冲刺、还在场上嘶吼,还在为每一个球拼到最后一秒!这就是C罗,这就是那个男人!",
+      "footage": { "src": "footage/ronaldo_wc_goals.mp4", "start": 54, "speed": 0.5 },
+      "overlay": { "layout": "spotlight", "kicker": "那 个 男 人 · 仍 在 战 斗", "kicker_color": "gold", "big": "仍 在 战 斗", "name": "C 罗 · 克 里 斯 蒂 亚 诺", "chips": ["国家队 130+ 球 历史第一", "生涯 900 球 怪物", "41岁 仍在玩命"] }
+    },
+    {
+      "id": "ronaldo-legend",
+      "text": "还有那个你永远绕不开的数字,职业生涯九百多粒进球,这是足球历史上前无古人的纪录!当同龄人纷纷挂靴谢幕,他还在不断刷新属于自己的传奇。四十一岁,他依然是那个从不服老的,克里斯蒂亚诺!",
+      "footage": { "src": "footage/ronaldo_wc_goals.mp4", "start": 204, "speed": 1.0 },
+      "overlay": { "layout": "stat", "kicker": "怪 物 · 永 不 服 老", "kicker_color": "gold", "label_sup": "C 罗 · 生涯进球", "count_to": 900, "unit": "球", "chips": ["生涯 900+ 球", "前无古人 历史第一", "41岁 仍在刷新"] }
+    },
+    {
+      "id": "doubt",
+      "text": "当然,质疑声从来没断过。四十一岁,真的还跑得动吗?是不是该给年轻人让位了?马丁内斯到底该让他首发,还是留作奇兵?这是全葡萄牙最大的争论!",
+      "footage": { "src": "footage/portugal_unl2025.mp4", "start": 614, "speed": 1.0 },
+      "overlay": { "layout": "chips", "kicker": "最 大 的 争 论", "chip_w": 480, "accent": "warn", "chips": ["41岁 · 体能存疑", "该不该 给年轻人让位", "首发 还是 奇兵?"] }
+    },
+    {
+      "id": "probability",
+      "text": "再加上四十八队的全新赛制、北美的酷暑,还有西班牙、法国和阿根廷这些豪强环伺!根据DeepSeek,谨慎推算,葡萄牙的夺冠概率,大约在百分之十到十三,稳居第一集团,绝对的夺冠热门!",
+      "footage": { "src": "footage/portugal_unl2025.mp4", "start": 458, "speed": 1.0 },
+      "overlay": { "layout": "bars", "kicker": "夺 冠 概 率 综 合 判 断", "top_chips": ["48队新赛制", "北美酷暑", "群雄环伺"], "big": "10–13%", "bars": [["西班牙",16],["法国",15],["阿根廷",14],["葡萄牙",12],["英格兰",11]], "highlight": "葡萄牙", "note": "* 夺冠概率由 DeepSeek 谨慎推算" }
+    },
+    {
+      "id": "ending",
+      "text": "所以我不管葡萄牙能不能夺冠,我只想知道——二零二六年的夏天,那个男人,是不是还站在那片绿茵场上,还在为荣耀而战?那个男人,是否还在战斗?评论区,告诉我!",
+      "footage": { "src": "footage/ronaldo_wc_goals.mp4", "start": 205, "speed": 0.7 },
+      "overlay": { "layout": "clean" }
+    }
+  ]
+}

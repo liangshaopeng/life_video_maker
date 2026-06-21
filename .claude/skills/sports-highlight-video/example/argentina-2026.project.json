@@ -1,0 +1,54 @@
+{
+  "name": "argentina-2026",
+  "output_dir": ".",
+  "build_dir": "build",
+  "footage_default": "footage/final720.mp4",
+  "voice": { "name": "zh-CN-YunjianNeural", "rate": "+20%", "pitch": "+16Hz", "volume": "+15%" },
+  "theme": { "sky": [117,188,240], "gold": [252,209,50], "navy": [10,22,50], "warn": [240,90,84] },
+  "bgm": { "file": "bgm/Crossing_the_Chasm.mp3", "start": 45, "volume": 0.42 },
+  "_note": "footage.start 是素材里的秒数,用缩略图墙定位后填写;speed<1=慢放。footage 文件需自备(版权)。",
+  "segments": [
+    {
+      "id": "open",
+      "text": "二零二二,卢塞尔的夜晚!梅西,高高举起大力神杯,阿根廷,封王啦!可是朋友们,四年之后,卫冕冠军卷土重来,这一次,他们还能不能,笑到最后?",
+      "footage": { "start": 520, "speed": 1.0 },
+      "overlay": { "layout": "title", "sup": "2026 世界杯 · 夺冠概率分析", "title": "阿 根 廷", "subtitle": "还 能 再 次 封 王 吗 ?" }
+    },
+    {
+      "id": "strength",
+      "text": "先看底气!国际足联排名,世界第一!美洲杯,成功卫冕!斯卡洛尼的体系,攻守平衡,几乎挑不出毛病。这,就是冠军的成色!",
+      "footage": { "start": 1920, "speed": 1.0 },
+      "overlay": { "layout": "chips", "kicker": "王 朝 的 底 气", "chips": ["FIFA 世界第一", "美洲杯 卫冕", "体系 攻守均衡"] }
+    },
+    {
+      "id": "youth",
+      "text": "更重要的是,这支阿根廷,早就不止一个梅西!劳塔罗、阿尔瓦雷斯、恩佐、麦卡利斯特,新一代,已经扛起了大旗!",
+      "footage": { "start": 1940, "speed": 1.0 },
+      "overlay": { "layout": "namelist", "kicker": "新 一 代 · 扛 起 大 旗", "names": ["劳 塔 罗", "J. 阿尔瓦雷斯", "恩 佐", "麦 卡 利 斯 特"] }
+    },
+    {
+      "id": "messi-age",
+      "text": "但是朋友们,隐忧,同样真实!二零二六,梅西就要满三十九岁,这,几乎是他最后一届世界杯!核心一旦老去,谁来接棒?",
+      "footage": { "start": 2030, "speed": 1.0 },
+      "overlay": { "layout": "stat", "kicker": "时 间 的 隐 忧", "kicker_color": "warn", "label_sup": "梅 西 · 2026", "count_to": 39, "unit": "岁", "chips": ["卫冕核心 渐老", "新老交替", "谁来接棒?"] }
+    },
+    {
+      "id": "dimaria",
+      "text": "还有一个更大的隐患,在锋线!常务副球王,天使迪马利亚,退出了国家队!你看决赛这一球,大心脏!假意一推,骗得洛里提前倒地,实则一记刁钻的弹地脚法,高级!从美洲杯到世界杯,大赛决赛,他总能一锤定音!天使一走,阿根廷前场,就少了那个,脚头最硬的大赛爆破手!",
+      "footage": { "start": 340, "speed": 0.5 },
+      "overlay": { "layout": "spotlight", "kicker": "锋 线 隐 患 · 天 使 退 役", "kicker_color": "warn", "big": "决 赛 先 生", "name": "天 使 · 迪 马 利 亚", "chips": ["2021美洲杯 决赛进球", "2022世界杯 决赛进球", "脚头硬 · 大赛爆破手"] }
+    },
+    {
+      "id": "probability",
+      "text": "再加上四十八队的全新赛制,北美的酷暑,还有西班牙、法国虎视眈眈!根据DeepSeek的谨慎推算,阿根廷的夺冠概率,大约百分之十二到十六,第一集团,稳稳的!但绝不是唯一的热门!",
+      "footage": { "start": 1740, "speed": 1.0 },
+      "overlay": { "layout": "bars", "kicker": "夺 冠 概 率 综 合 判 断", "top_chips": ["48队新赛制", "北美酷暑", "强敌环伺"], "big": "12–16%", "bars": [["西班牙",16],["阿根廷",15],["法国",14],["英格兰",12],["巴西",10]], "highlight": "阿根廷", "note": "* 夺冠概率由 DeepSeek 谨慎推算" }
+    },
+    {
+      "id": "ending",
+      "text": "所以,如果这真的是,梅西的最后一舞,朋友们,你,敢不敢赌他,笑到最后?",
+      "footage": { "start": 2090, "speed": 0.85 },
+      "overlay": { "layout": "end", "title": "2026 · 最 后 一 舞", "subtitle": "你 敢 赌 他 笑 到 最 后 吗 ?" }
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+# ============================================================
+# life_video_maker .gitignore
+# 仓库只保存「源文件」：脚本 (.py/.sh)、配置 (project.json/
+# timeline.json)、字幕 (.srt/.vtt/.ass)、文档 (.md)。
+# 视频 / 音频 / 渲染帧等大体积、可再生成的产物不入库。
+# 如需强制提交某个被忽略的文件：git add -f <file>
+# ============================================================
+
+# ---- macOS ----
+.DS_Store
+
+# ---- 视频 (video) ----
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.avi
+*.m4v
+*.flv
+
+# ---- 音频 (audio) ----
+*.mp3
+*.wav
+*.aiff
+*.aif
+*.aac
+*.m4a
+*.flac
+*.ogg
+
+# ---- 图片 / 渲染帧 (images & rendered frames) ----
+# 项目里的 png/jpg 基本是脚本生成的逐帧画面与下载的素材帧，可再生成
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.tiff
+
+# ---- 渲染中间产物目录 (build artifacts) ----
+build/
+_bak_resume/
+
+# ---- 日志与备份 ----
+*.log
+*.bak
+
+# ---- 敏感信息 (secrets) ----
+cookies.txt
+*cookies*.txt
+*.cookies
+
+# ---- Python ----
+__pycache__/
+*.pyc
+.venv/
+venv/
