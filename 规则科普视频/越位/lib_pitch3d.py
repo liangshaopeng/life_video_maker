@@ -38,6 +38,11 @@ def F(sz):
     try: f = ImageFont.truetype("/System/Library/Fonts/Supplemental/Arial Black.ttf", sz)
     except: f = None
     _fc[sz] = f; return f
+_fcn = {}
+def fcn(sz):
+    if sz not in _fcn:
+        _fcn[sz] = ImageFont.truetype("/System/Library/Fonts/Hiragino Sans GB.ttc", sz, index=2)
+    return _fcn[sz]
 def _hi(c, f=1.25): return tuple(min(255, int(v*f)) for v in c[:3])
 def _sh(c, f=0.72): return tuple(int(v*f) for v in c[:3])
 
@@ -61,6 +66,19 @@ def draw_offside(base, fx_line):
     ImageDraw.Draw(ov).polygon([_p(fx_line,0), _p(1,0), _p(1,1), _p(fx_line,1)], fill=(228,58,40,140))
     base.alpha_composite(ov)
     _dashed(ImageDraw.Draw(base), _p(fx_line,0), _p(fx_line,1), (95,165,250), 22, 13, 6)
+
+def draw_battle_zone(base, fx_lo, fx_hi, label="对抗 · 博弈区"):
+    """越位线附近的对抗带(金色高亮+边界虚线+标注)——强调'对抗全压在这条窄带上'。"""
+    ov = Image.new("RGBA", (W, H), (0,0,0,0))
+    ImageDraw.Draw(ov).polygon([_p(fx_lo,0),_p(fx_hi,0),_p(fx_hi,1),_p(fx_lo,1)], fill=(252,209,50,70))
+    base.alpha_composite(ov)
+    d = ImageDraw.Draw(base, "RGBA")
+    _dashed(d, _p(fx_lo,0), _p(fx_lo,1), (252,216,80,255), 18, 10, 5)
+    _dashed(d, _p(fx_hi,0), _p(fx_hi,1), (252,216,80,255), 18, 10, 5)
+    if label:
+        cx = (_p(fx_lo,0)[0] + _p(fx_hi,0)[0]) / 2
+        d.text((cx, Y_FAR + 34), label, font=fcn(40), fill=(255,233,120,255),
+               anchor="mm", stroke_width=3, stroke_fill=(0,0,0,205))
 
 def draw_lines(base):
     d = ImageDraw.Draw(base); w = (236,244,236)
@@ -148,6 +166,9 @@ def render_frame(spec, tt):
     draw_grass(img)
     ol = spec.get("offside_line")
     if ol: draw_offside(img, interp(ol["keys"], tt)[0])
+    bz = spec.get("battle_zone")
+    if bz:
+        k = interp(bz["keys"], tt); draw_battle_zone(img, k[0], k[1], bz.get("label", "对抗 · 博弈区"))
     draw_lines(img); draw_goal(img, 'left'); draw_goal(img, 'right')
     items = []
     for pl in spec.get("players", []):
