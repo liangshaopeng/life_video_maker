@@ -67,3 +67,21 @@ def draw_player(img, nx, ny, team="red", label=""):
         fnt = font("b", 30)
         d.text((px, py), label, font=fnt, fill=(255,255,255,255), anchor="mm")
     return img
+
+def draw_offside_line(img, ny, col=None, dash=34, gap=22, w=7):
+    """横跨球场的虚线越位线(gold)。ny: 归一化纵向位置。"""
+    d = ImageDraw.Draw(img)
+    col = col or (tuple(C("gold")) + (255,))
+    y = Y0 + ny * FH
+    x = X0
+    while x < X0 + FW:
+        d.line([(x, y), (min(x + dash, X0 + FW), y)], fill=col, width=w)
+        x += dash + gap
+    return img
+
+def draw_ball(img, nx, ny):
+    d = ImageDraw.Draw(img)
+    px, py = to_px(nx, ny)
+    r = 12
+    d.ellipse([px-r, py-r, px+r, py+r], fill=(255,255,255,255), outline=(20,20,20,255), width=2)
+    return img
