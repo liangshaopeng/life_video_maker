@@ -51,14 +51,11 @@ def compose(vsrc, fp, clip, ovlabel, fin=0.2, fout=0.2):
 
 def build_clip(seg,tl):
     i=tl["seg"]; clip=tl["clip"]; fp=seg.get("footage",{})
-    src=src_of(seg)
-    if not os.path.exists(src): sys.exit(f"素材不存在: {src}")
     ov=os.path.join(BUILD,"overlays",f"seg{i}","%04d.png")
     aud=os.path.join(BUILD,"audio",f"seg{i}.mp3")
     out=os.path.join(CLIPS,f"clip{i}.mp4")
-    freeze=fp.get("freeze")
 
-    # —— 动画段:背景用战术板帧序列(全屏1080x1920),不走画面带逻辑 ——
+    # —— 动画段:背景用战术板帧序列(全屏1080x1920),不走画面带逻辑;须在取 footage 之前处理(pitch 段无素材)——
     if seg.get("pitch") is not None:
         pdir = os.path.join(BUILD, "pitch", f"seg{i}", "%04d.png")
         vf = (f"[0:v]fps=30,trim=duration={clip:.3f},setpts=PTS-STARTPTS,"
@@ -76,6 +73,9 @@ def build_clip(seg,tl):
         subprocess.run(cmd,check=True)
         return out
 
+    src=src_of(seg)
+    if not os.path.exists(src): sys.exit(f"素材不存在: {src}")
+    freeze=fp.get("freeze")
     if freeze is not None:                       # 定格:抽一帧 loop;输入 0=still 1=audio 2=overlay
         frpng=os.path.join(BUILD,f"freeze_seg{i}.png")
         subprocess.run(["ffmpeg","-y","-hide_banner","-loglevel","error","-ss",str(freeze),
