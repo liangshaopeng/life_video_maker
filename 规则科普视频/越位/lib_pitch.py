@@ -85,3 +85,45 @@ def draw_ball(img, nx, ny):
     r = 12
     d.ellipse([px-r, py-r, px+r, py+r], fill=(255,255,255,255), outline=(20,20,20,255), width=2)
     return img
+
+def draw_arrow(img, p_from, p_to, col=None, w=8, dashed=True):
+    """归一化两点间画箭头(直线+箭头头)。"""
+    d = ImageDraw.Draw(img)
+    col = col or (tuple(C("gold")) + (255,))
+    x1, y1 = to_px(*p_from); x2, y2 = to_px(*p_to)
+    if dashed:
+        seg, g = 26, 16; tot = math.hypot(x2-x1, y2-y1); n = max(1, int(tot//(seg+g)))
+        for k in range(n):
+            a = k*(seg+g)/tot; b = min(1.0, (k*(seg+g)+seg)/tot)
+            d.line([(lerp(x1,x2,a),lerp(y1,y2,a)),(lerp(x1,x2,b),lerp(y1,y2,b))], fill=col, width=w)
+    else:
+        d.line([(x1,y1),(x2,y2)], fill=col, width=w)
+    ang = math.atan2(y2-y1, x2-x1); hl = 28
+    for s in (2.6, -2.6):
+        d.line([(x2,y2),(x2-hl*math.cos(ang+s), y2-hl*math.sin(ang+s))], fill=col, width=w)
+    return img
+
+def render_pitch_frame(spec, tt):
+    """spec: 段的 'pitch' 规格;tt: 段内秒。返回全屏 RGBA 帧。
+    画序:底帧 -> 场 -> 越位线 -> 箭头 -> 球员 -> 球 -> 场景标签。"""
+    f = new_frame()
+    draw_pitch(f)
+    ol = spec.get("offside_line")
+    if ol:
+        draw_offside_line(f, interp(ol["keys"], tt)[0])
+    for ar in spec.get("arrows", []):
+        if ar.get("t", 0) <= tt <= ar.get("t", 0) + ar.get("dur", 9):
+            draw_arrow(f, ar["from"], ar["to"],
+                       col=(tuple(C(ar.get("color","gold")))+(255,)),
+                       dashed=ar.get("style","dashed")=="dashed")
+    for pl in spec.get("players", []):
+        nx, ny = interp(pl["keys"], tt)
+        draw_player(f, nx, ny, pl.get("team","red"), pl.get("label",""))
+    b = spec.get("ball")
+    if b:
+        bx, by = interp(b["keys"], tt); draw_ball(f, bx, by)
+    lab = spec.get("scene_label")
+    if lab:
+        ImageDraw.Draw(f).text((W//2, Y0-70), lab, font=font("b", 56),
+                               fill=tuple(C("gold"))+(255,), anchor="mm")
+    return f
