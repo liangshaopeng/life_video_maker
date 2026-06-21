@@ -58,6 +58,24 @@ def build_clip(seg,tl):
     out=os.path.join(CLIPS,f"clip{i}.mp4")
     freeze=fp.get("freeze")
 
+    # —— 动画段:背景用战术板帧序列(全屏1080x1920),不走画面带逻辑 ——
+    if seg.get("pitch") is not None:
+        pdir = os.path.join(BUILD, "pitch", f"seg{i}", "%04d.png")
+        vf = (f"[0:v]fps=30,trim=duration={clip:.3f},setpts=PTS-STARTPTS,"
+              f"fade=t=in:st=0:d=0.2,fade=t=out:st={clip-0.2:.3f}:d=0.2[bgp];"
+              f"[bgp][1:v]overlay=0:0:shortest=0[v]")
+        af = f"[2:a]apad,atrim=duration={clip:.3f},afade=t=out:st={clip-0.15:.3f}:d=0.15[a]"
+        cmd = ["ffmpeg","-y","-hide_banner","-loglevel","error",
+               "-framerate","30","-i",pdir,            # 0 = 战术板背景帧
+               "-framerate","30","-i",ov,              # 1 = 透明叠加层
+               "-i",aud,                                # 2 = 配音
+               "-filter_complex",vf+";"+af,
+               "-map","[v]","-map","[a]","-r","30","-c:v","libx264","-profile:v","high",
+               "-pix_fmt","yuv420p","-preset","medium","-c:a","aac","-b:a","192k","-t",f"{clip:.3f}",out]
+        print(f"→ clip{i}({tl['id']}) PITCH {clip:.1f}s")
+        subprocess.run(cmd,check=True)
+        return out
+
     if freeze is not None:                       # 定格:抽一帧 loop;输入 0=still 1=audio 2=overlay
         frpng=os.path.join(BUILD,f"freeze_seg{i}.png")
         subprocess.run(["ffmpeg","-y","-hide_banner","-loglevel","error","-ss",str(freeze),
