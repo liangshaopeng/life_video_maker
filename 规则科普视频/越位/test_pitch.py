@@ -20,3 +20,8 @@ def test_interp_scalar_value():
 def test_to_px_maps_normalized_to_pitch_rect():
     assert P.to_px(0.0, 0.0) == (P.X0, P.Y0)
     assert P.to_px(1.0, 1.0) == (P.X0 + P.FW, P.Y0 + P.FH)
+
+def test_draw_arrow_zero_length_does_not_crash():
+    # 起点=终点(零长箭头)旧实现会 ZeroDivisionError;现应安全跳过
+    f = P.new_frame()
+    P.draw_arrow(f, [0.5, 0.5], [0.5, 0.5])

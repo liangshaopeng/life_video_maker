@@ -87,14 +87,18 @@ def draw_ball(img, nx, ny):
     return img
 
 def draw_arrow(img, p_from, p_to, col=None, w=8, dashed=True):
-    """归一化两点间画箭头(直线+箭头头)。"""
+    """归一化两点间画箭头(直线+箭头头)。零长箭头(起=止)直接跳过。"""
     d = ImageDraw.Draw(img)
     col = col or (tuple(C("gold")) + (255,))
     x1, y1 = to_px(*p_from); x2, y2 = to_px(*p_to)
+    tot = math.hypot(x2 - x1, y2 - y1)
+    if tot < 1e-9:
+        return img
     if dashed:
-        seg, g = 26, 16; tot = math.hypot(x2-x1, y2-y1); n = max(1, int(tot//(seg+g)))
+        seg, g = 26, 16; n = max(1, int(tot // (seg + g)))
         for k in range(n):
-            a = k*(seg+g)/tot; b = min(1.0, (k*(seg+g)+seg)/tot)
+            start = k * (seg + g)
+            a, b = start / tot, min(1.0, (start + seg) / tot)
             d.line([(lerp(x1,x2,a),lerp(y1,y2,a)),(lerp(x1,x2,b),lerp(y1,y2,b))], fill=col, width=w)
     else:
         d.line([(x1,y1),(x2,y2)], fill=col, width=w)
