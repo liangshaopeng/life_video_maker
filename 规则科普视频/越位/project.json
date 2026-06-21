@@ -1,0 +1,85 @@
+{
+  "name": "越位",
+  "output_dir": ".",
+  "build_dir": "build",
+  "voice": { "name": "zh-CN-YunxiNeural", "rate": "+6%", "pitch": "+0Hz", "volume": "+6%" },
+  "pad": 0.3,
+  "caption_maxlen": 16,
+  "no_split": ["梅西"],
+  "watermark": "思考的我",
+  "theme": { "navy": [8,16,34], "gold": [252,209,50], "sky": [96,178,240], "warn": [244,86,80], "good": [74,210,140] },
+  "segments": [
+    {
+      "id": "hook",
+      "text": "足球里最招人骂的规则,越位。但你敢删了它试试?",
+      "pitch": { "players": [], "scene_label": "" },
+      "overlay": { "layout": "title", "title": "越 位", "subtitle": "最招人骂\n又最不能删的规则", "sup": "规则科普 · 越位" }
+    },
+    {
+      "id": "no_offside",
+      "text": "没有越位,最聪明的踢法就是派个人,一直杵在对方门口,等一脚长传喂饼。两边都这么干,中场就空了,足球变成隔着大半个场子互相开大脚。",
+      "pitch": {
+        "scene_label": "假如没有越位",
+        "players": [
+          {"team":"red","label":"9","keys":[[0,0.5,0.55],[3,0.5,0.12],[19,0.5,0.12]]},
+          {"team":"blue","label":"4","keys":[[0,0.5,0.78],[3,0.5,0.20],[19,0.5,0.20]]},
+          {"team":"blue","label":"9","keys":[[0,0.45,0.50],[6,0.5,0.88],[19,0.5,0.88]]},
+          {"team":"red","label":"4","keys":[[0,0.55,0.55],[6,0.5,0.80],[19,0.5,0.80]]}
+        ],
+        "ball": {"keys":[[0,0.5,0.80],[2.6,0.5,0.16]]},
+        "arrows":[{"from":[0.5,0.80],"to":[0.5,0.16],"t":0.5,"dur":2.1,"color":"gold","style":"dashed"}]
+      },
+      "overlay": { "layout": "beat", "title": "蹲门口等喂饼", "kicker": "中场没人了", "accent": "warn" }
+    },
+    {
+      "id": "the_line",
+      "text": "越位这条线就是来治它的:不许你提前站到最后一个后卫身后等球。想得分,就得跟防线斗,在出球那一刻、压着线冲过去。",
+      "pitch": {
+        "scene_label": "越位线 = 倒数第二个防守人",
+        "offside_line": {"keys":[[0,0.35],[8,0.35]]},
+        "players": [
+          {"team":"red","label":"9","keys":[[0,0.5,0.52],[4,0.5,0.28],[8,0.5,0.28]]},
+          {"team":"blue","label":"2","keys":[[0,0.5,0.35],[8,0.5,0.35]]}
+        ]
+      },
+      "overlay": { "layout": "beat", "title": "不许站后卫身后等球", "kicker": "看'出球那一刻'", "accent": "sky" }
+    },
+    {
+      "id": "messi",
+      "text": "早半步,吹掉。看梅西,就是踩着这条线,在出球那一刻反插进去。",
+      "pitch": {
+        "scene_label": "压着线 · 反插",
+        "offside_line": {"keys":[[0,0.40],[3,0.40]]},
+        "players": [
+          {"team":"blue","label":"2","keys":[[0,0.5,0.40],[3,0.5,0.40]]},
+          {"team":"red","label":"10","keys":[[0,0.46,0.52],[1.3,0.5,0.41],[3,0.5,0.22]]},
+          {"team":"red","label":"8","keys":[[0,0.40,0.72],[3,0.40,0.72]]}
+        ],
+        "ball": {"keys":[[0,0.42,0.72],[1.3,0.42,0.72],[2.4,0.5,0.24]]},
+        "arrows":[{"from":[0.42,0.72],"to":[0.5,0.24],"t":1.3,"dur":1.1,"color":"good","style":"dashed"}]
+      },
+      "overlay": { "layout": "beat", "title": "压着线反插", "kicker": "梅西破越位", "accent": "gold" }
+    },
+    {
+      "id": "core",
+      "text": "看明白没?越位不是为了少进球。它是把两队摁在同一条线上,面对面真刀真枪地拼,而不是各蹲一头,等天上掉馅饼。",
+      "pitch": {
+        "scene_label": "摁在一条线上 面对面拼",
+        "offside_line": {"keys":[[0,0.46],[25,0.46]]},
+        "players": [
+          {"team":"red","label":"","keys":[[0,0.30,0.52],[25,0.40,0.43]]},
+          {"team":"red","label":"","keys":[[0,0.58,0.54],[25,0.60,0.45]]},
+          {"team":"blue","label":"","keys":[[0,0.36,0.44],[25,0.46,0.44]]},
+          {"team":"blue","label":"","keys":[[0,0.64,0.45],[25,0.56,0.45]]}
+        ]
+      },
+      "overlay": { "layout": "beat", "title": "把两队摁在一条线上", "kicker": "面对面拼,而不是等馅饼", "accent": "good" }
+    },
+    {
+      "id": "meaning",
+      "text": "规则是人定的,不是天定的。可一旦删了越位,足球就垮成大脚冲吊。好规则从来不是为了限制谁,是为了不让比赛沦为投机。这,就是越位存在的意义。",
+      "pitch": { "players": [], "scene_label": "" },
+      "overlay": { "layout": "end", "title": "好规则不是限制\n是反投机", "subtitle": "这就是越位存在的意义" }
+    }
+  ]
+}
