@@ -3,7 +3,7 @@
   "output_dir": ".",
   "build_dir": "build",
   "footage_default": "footage/tun_ned.mp4",
-  "voice": { "name": "zh-CN-YunjianNeural", "rate": "+24%", "pitch": "+3Hz", "volume": "+12%" },
+  "voice": { "name": "zh-CN-YunjianNeural", "rate": "+30%", "pitch": "+3Hz", "volume": "+12%" },
   "pad": 0.24,
   "caption_maxlen": 16,
   "no_split": ["荷兰", "突尼斯", "范戴克", "德容", "弗伦基德容", "格拉文贝赫", "格拉文贝奇", "赖因德斯", "加克波", "布罗比", "邓弗里斯", "范赫克", "维尔布鲁亨", "斯希里", "马斯图里", "汉尼拔", "汉尼拔梅布里", "加尔比", "沙瓦特", "达门", "库普梅纳斯"],
@@ -15,20 +15,29 @@
   "segments": [
     {
       "id": "hook",
-      "text": "这场不用绕远,直接看阵容和战术。突尼斯守中路,荷兰找宽度,胜负点就藏在两边的站法里。",
+      "text": "这场先看阵容,再看战术。突尼斯摆五三二守禁区,荷兰四三三拉开宽度,胜负点就在边路和定位球。",
       "footage": { "start": 104.0, "speed": 0.75 },
       "overlay": { "layout": "beat", "phase": "战术主线", "idx": "开场", "accent": "gold",
-        "title": "三中卫低位", "kicker": "荷兰两刀拆开",
-        "points": ["早传逼转身", "定位球抢半步"] }
+        "title": "五后卫低位", "kicker": "荷兰拉宽拆开",
+        "points": ["边路早传", "定位球抢点"] }
     },
 
     {
-      "id": "lineup",
-      "text": "阵容只抓特点。突尼斯是三中卫带翼卫,退守时变五后卫,中路人多,保护禁区。荷兰也是三后卫起步,但边翼卫拉宽,范戴克抢第一点,前场就等早传和定位球二点。",
-      "footage": { "start": 82.0, "speed": 0.85 },
-      "overlay": { "layout": "beat", "phase": "阵容特点", "idx": "两队", "accent": "sky",
-        "title": "三中卫 对 三后卫", "kicker": "守中路 vs 拉宽度",
-        "points": ["突尼斯:退成五后卫", "荷兰:翼卫拉开宽度", "范戴克抢第一落点"] }
+      "id": "lineup_tun",
+      "text": "先看突尼斯。五三二的核心,就是三中卫站住禁区,两名翼卫先退回来,中场三人堵住肋部。人多,站得低,目的很清楚,先把荷兰的中路堵死。",
+      "footage": { "start": 17.0, "speed": 1.0 },
+      "overlay": { "layout": "beat", "phase": "阵容展示", "idx": "突尼斯", "accent": "warn",
+        "title": "5-3-2 低位保护", "kicker": "先堵中路和禁区",
+        "points": ["三中卫站禁区", "翼卫先退回来", "中场封肋部"] }
+    },
+
+    {
+      "id": "lineup_ned",
+      "text": "再看荷兰。四三三不是硬往中路撞,边锋和边后卫把宽度拉满,布罗比顶住中卫,范戴克留着定位球抢第一点。荷兰要拆的,就是突尼斯横移那一下。",
+      "footage": { "start": 44.0, "speed": 1.0 },
+      "overlay": { "layout": "beat", "phase": "阵容展示", "idx": "荷兰", "accent": "sky",
+        "title": "4-3-3 拉开宽度", "kicker": "边路和定位球做文章",
+        "points": ["边锋拉宽", "布罗比占中路", "范戴克抢第一点"] }
     },
 
     {
