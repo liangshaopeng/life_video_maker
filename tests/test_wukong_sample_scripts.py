@@ -4,7 +4,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageDraw
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -289,6 +289,24 @@ def test_shot06_overlay_does_not_draw_duplicate_hook(tmp_path):
     with Image.open(overlay) as img:
         hook_band = img.crop((160, 1200, 920, 1480))
         assert hook_band.getchannel("A").getbbox() is None
+
+
+def test_cinematic_effects_change_overlay_pixels_over_time():
+    module = load_module(
+        PROJECT_DIR / "scripts" / "render_overlays.py",
+        "wukong_render_cinematic_effects",
+        argv=["render_overlays.py", str(PROJECT_JSON)],
+    )
+    shot = {"id": "shot03_weapon_clash"}
+    early = Image.new("RGBA", (module.W, module.H), (0, 0, 0, 0))
+    late = Image.new("RGBA", (module.W, module.H), (0, 0, 0, 0))
+
+    module.draw_cinematic_effects(ImageDraw.Draw(early), shot, t=0.18, duration=6.0)
+    module.draw_cinematic_effects(ImageDraw.Draw(late), shot, t=0.82, duration=6.0)
+
+    assert early.getbbox() is not None
+    assert late.getbbox() is not None
+    assert early.tobytes() != late.tobytes()
 
 
 def ffprobe_stream(path: Path) -> dict:
