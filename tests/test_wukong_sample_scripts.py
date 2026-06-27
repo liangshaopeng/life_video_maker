@@ -173,6 +173,65 @@ def test_timeline_uses_shot_durations_and_keeps_audio_within_clip():
         assert audio_duration <= float(seg["clip"]) + 0.02
 
 
+def test_motion_params_supports_directional_pan_and_shake():
+    module = load_module(
+        PROJECT_DIR / "scripts" / "assemble_sample.py",
+        "wukong_assemble_motion_params",
+        argv=["assemble_sample.py", str(PROJECT_JSON)],
+    )
+    shot = {
+        "motion": {
+            "zoom_start": 1.03,
+            "zoom_end": 1.21,
+            "pan_x": 0.62,
+            "pan_y": 0.44,
+            "pan_start_x": 0.41,
+            "pan_start_y": 0.58,
+            "shake": 0.018,
+            "impact_at": 0.35,
+        }
+    }
+
+    params = module.motion_params(shot, frames=120)
+
+    assert params["zoom_start"] == 1.03
+    assert params["zoom_end"] == 1.21
+    assert params["pan_start_x"] == 0.41
+    assert params["pan_start_y"] == 0.58
+    assert params["pan_end_x"] == 0.62
+    assert params["pan_end_y"] == 0.44
+    assert params["shake"] == 0.018
+    assert params["impact_frame"] == 42.0
+
+
+def test_zoompan_filter_uses_directional_pan_expression():
+    module = load_module(
+        PROJECT_DIR / "scripts" / "assemble_sample.py",
+        "wukong_assemble_zoompan_filter",
+        argv=["assemble_sample.py", str(PROJECT_JSON)],
+    )
+    shot = {
+        "motion": {
+            "zoom_start": 1.0,
+            "zoom_end": 1.18,
+            "pan_x": 0.60,
+            "pan_y": 0.42,
+            "pan_start_x": 0.38,
+            "pan_start_y": 0.55,
+            "shake": 0.012,
+            "impact_at": 0.50,
+        }
+    }
+
+    vf = module.zoompan_filter(shot, frames=150)
+
+    assert "(0.38000+(0.60000-0.38000)*min(1,on/149))" in vf
+    assert "(0.55000+(0.42000-0.55000)*min(1,on/149))" in vf
+    assert "sin(on*2.70000)" in vf
+    assert "between(on,60,90)" in vf
+    assert "iw/2-(iw/zoom/2)" not in vf
+
+
 def test_bgm_exists_and_is_long_enough():
     bgm = PROJECT_DIR / "assets" / "bgm" / "dark_myth_bgm.wav"
     assert bgm.exists()

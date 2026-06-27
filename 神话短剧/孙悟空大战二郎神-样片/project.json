@@ -21,7 +21,16 @@
       "caption": "天庭围猎\\n齐天大圣",
       "prompt": "prompts/shot01_heavenly_siege.md",
       "keyframe": "assets/keyframes/shot01_heavenly_siege.png",
-      "motion": { "zoom_start": 1.0, "zoom_end": 1.06, "pan_x": 0.50, "pan_y": 0.46 }
+      "motion": {
+        "zoom_start": 1.0,
+        "zoom_end": 1.16,
+        "pan_x": 0.58,
+        "pan_y": 0.52,
+        "pan_start_x": 0.42,
+        "pan_start_y": 0.40,
+        "shake": 0.006,
+        "impact_at": 0.68
+      }
     },
     {
       "id": "shot02_heavenly_eye",
@@ -31,7 +40,16 @@
       "caption": "天眼开",
       "prompt": "prompts/shot02_heavenly_eye.md",
       "keyframe": "assets/keyframes/shot02_heavenly_eye.png",
-      "motion": { "zoom_start": 1.0, "zoom_end": 1.08, "pan_x": 0.50, "pan_y": 0.38 }
+      "motion": {
+        "zoom_start": 1.0,
+        "zoom_end": 1.20,
+        "pan_x": 0.50,
+        "pan_y": 0.34,
+        "pan_start_x": 0.48,
+        "pan_start_y": 0.52,
+        "shake": 0.004,
+        "impact_at": 0.42
+      }
     },
     {
       "id": "shot03_weapon_clash",
@@ -41,7 +59,16 @@
       "caption": "金箍棒\\n对三尖两刃刀",
       "prompt": "prompts/shot03_weapon_clash.md",
       "keyframe": "assets/keyframes/shot03_weapon_clash.png",
-      "motion": { "zoom_start": 1.0, "zoom_end": 1.10, "pan_x": 0.52, "pan_y": 0.50 }
+      "motion": {
+        "zoom_start": 1.0,
+        "zoom_end": 1.24,
+        "pan_x": 0.62,
+        "pan_y": 0.46,
+        "pan_start_x": 0.38,
+        "pan_start_y": 0.56,
+        "shake": 0.018,
+        "impact_at": 0.32
+      }
     },
     {
       "id": "shot04_clone_break",
@@ -51,7 +78,16 @@
       "caption": "真身\\n被锁定",
       "prompt": "prompts/shot04_clone_break.md",
       "keyframe": "assets/keyframes/shot04_clone_break.png",
-      "motion": { "zoom_start": 1.0, "zoom_end": 1.07, "pan_x": 0.48, "pan_y": 0.48 }
+      "motion": {
+        "zoom_start": 1.0,
+        "zoom_end": 1.18,
+        "pan_x": 0.44,
+        "pan_y": 0.46,
+        "pan_start_x": 0.58,
+        "pan_start_y": 0.52,
+        "shake": 0.012,
+        "impact_at": 0.48
+      }
     },
     {
       "id": "shot05_final_staff",
@@ -61,7 +97,16 @@
       "caption": "压不住的\\n齐天大圣",
       "prompt": "prompts/shot05_final_staff.md",
       "keyframe": "assets/keyframes/shot05_final_staff.png",
-      "motion": { "zoom_start": 1.0, "zoom_end": 1.12, "pan_x": 0.50, "pan_y": 0.52 }
+      "motion": {
+        "zoom_start": 1.0,
+        "zoom_end": 1.28,
+        "pan_x": 0.52,
+        "pan_y": 0.38,
+        "pan_start_x": 0.46,
+        "pan_start_y": 0.62,
+        "shake": 0.020,
+        "impact_at": 0.58
+      }
     },
     {
       "id": "shot06_afterimage_hook",
@@ -71,7 +116,16 @@
       "caption": "未完待续",
       "prompt": "prompts/shot06_afterimage_hook.md",
       "keyframe": "assets/keyframes/shot06_afterimage_hook.png",
-      "motion": { "zoom_start": 1.0, "zoom_end": 1.02, "pan_x": 0.50, "pan_y": 0.50 }
+      "motion": {
+        "zoom_start": 1.0,
+        "zoom_end": 1.08,
+        "pan_x": 0.50,
+        "pan_y": 0.48,
+        "pan_start_x": 0.50,
+        "pan_start_y": 0.52,
+        "shake": 0.004,
+        "impact_at": 0.30
+      }
     }
   ],
   "_note": "30秒暗黑神话样片。公版人物和原创视觉, 不复刻影视剧/游戏/抖音现有作品。"

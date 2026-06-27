@@ -16,6 +16,70 @@ CLIPS = BUILD / "clips"
 CLIPS.mkdir(parents=True, exist_ok=True)
 
 
+def clamp01(value: float) -> float:
+    return max(0.0, min(1.0, value))
+
+
+def motion_params(shot: dict, frames: int) -> dict:
+    motion = shot["motion"]
+    frame_count = max(1, int(frames))
+    pan_end_x = clamp01(float(motion.get("pan_end_x", motion["pan_x"])))
+    pan_end_y = clamp01(float(motion.get("pan_end_y", motion["pan_y"])))
+    pan_start_x = clamp01(float(motion.get("pan_start_x", pan_end_x)))
+    pan_start_y = clamp01(float(motion.get("pan_start_y", pan_end_y)))
+    impact_at = clamp01(float(motion.get("impact_at", 0.50)))
+
+    return {
+        "zoom_start": float(motion["zoom_start"]),
+        "zoom_end": float(motion["zoom_end"]),
+        "pan_start_x": pan_start_x,
+        "pan_start_y": pan_start_y,
+        "pan_end_x": pan_end_x,
+        "pan_end_y": pan_end_y,
+        "shake": max(0.0, float(motion.get("shake", 0.0))),
+        "impact_frame": round(impact_at * frame_count, 3),
+    }
+
+
+def zoompan_filter(shot: dict, frames: int) -> str:
+    frame_count = max(1, int(frames))
+    params = motion_params(shot, frame_count)
+    zoom_start = params["zoom_start"]
+    zoom_end = params["zoom_end"]
+    zoom_delta = (zoom_end - zoom_start) / frame_count
+    progress = f"min(1,on/{max(1, frame_count - 1)})"
+    pan_x = (
+        f"({params['pan_start_x']:.5f}+"
+        f"({params['pan_end_x']:.5f}-{params['pan_start_x']:.5f})*{progress})"
+    )
+    pan_y = (
+        f"({params['pan_start_y']:.5f}+"
+        f"({params['pan_end_y']:.5f}-{params['pan_start_y']:.5f})*{progress})"
+    )
+    impact = int(round(params["impact_frame"]))
+    window = max(2, int(round(frame_count * 0.10)))
+    impact_start = max(0, impact - window)
+    impact_end = min(frame_count, impact + window)
+    shake_x = params["shake"] * W
+    shake_y = params["shake"] * H * 0.45
+    shake_gate = f"between(on,{impact_start},{impact_end})"
+    x_expr = (
+        f"min(max(0,(iw-iw/zoom)*{pan_x}+"
+        f"{shake_x:.5f}*sin(on*2.70000)*{shake_gate}),iw-iw/zoom)"
+    )
+    y_expr = (
+        f"min(max(0,(ih-ih/zoom)*{pan_y}+"
+        f"{shake_y:.5f}*cos(on*3.10000)*{shake_gate}),ih-ih/zoom)"
+    )
+
+    return (
+        f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,"
+        f"crop={W}:{H},setsar=1,"
+        f"zoompan=z='min({zoom_end:.5f},{zoom_start:.5f}+on*{zoom_delta:.8f})':"
+        f"x='{x_expr}':y='{y_expr}':d={frame_count}:s={W}x{H}:fps={FPS}[base];"
+    )
+
+
 def run(cmd):
     print(" ".join(str(c) for c in cmd))
     subprocess.run([str(c) for c in cmd], check=True)
@@ -29,15 +93,9 @@ def build_clip(shot: dict, item: dict) -> Path:
     overlay_pattern = BUILD / "overlays" / f"seg{index}" / "%04d.png"
     audio = BUILD / "audio" / f"seg{index}.mp3"
     out = CLIPS / f"clip{index:02d}.mp4"
-    zoom_start = float(shot["motion"]["zoom_start"])
-    zoom_end = float(shot["motion"]["zoom_end"])
-    zoom_delta = (zoom_end - zoom_start) / frames
 
     vf = (
-        f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,"
-        f"crop={W}:{H},setsar=1,"
-        f"zoompan=z='min({zoom_end:.5f},{zoom_start:.5f}+on*{zoom_delta:.8f})':"
-        f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s={W}x{H}:fps={FPS}[base];"
+        zoompan_filter(shot, frames) +
         f"[base][1:v]overlay=0:0:shortest=1[v];"
         f"[2:a]apad,atrim=duration={duration:.3f},afade=t=out:st={max(0.0, duration - 0.18):.3f}:d=0.18[a]"
     )
