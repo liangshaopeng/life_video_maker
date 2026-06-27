@@ -1,0 +1,78 @@
+{
+  "name": "wukong-erlang-dark-myth-sample",
+  "output_dir": ".",
+  "build_dir": "build",
+  "canvas": { "width": 1080, "height": 1920, "fps": 30 },
+  "voice": { "name": "zh-CN-YunjianNeural", "rate": "+8%", "pitch": "-2Hz", "volume": "+8%" },
+  "pad": 0.18,
+  "caption_maxlen": 14,
+  "font": "/System/Library/Fonts/Hiragino Sans GB.ttc",
+  "watermark": "思考的我",
+  "grade": "eq=contrast=1.12:saturation=1.08:brightness=-0.03",
+  "bgm": "assets/bgm/dark_myth_bgm.wav",
+  "final_no_bgm": "wukong_erlang_sample_vertical.mp4",
+  "final_mixed": "wukong_erlang_sample_final.mp4",
+  "shots": [
+    {
+      "id": "shot01_heavenly_siege",
+      "duration": 4.0,
+      "beat": "天庭围猎齐天大圣",
+      "narration": "那一天，天庭终于派出了真正能看穿他的神。",
+      "caption": "天庭围猎\\n齐天大圣",
+      "prompt": "prompts/shot01_heavenly_siege.md",
+      "keyframe": "assets/keyframes/shot01_heavenly_siege.png",
+      "motion": { "zoom_start": 1.0, "zoom_end": 1.06, "pan_x": 0.50, "pan_y": 0.46 }
+    },
+    {
+      "id": "shot02_heavenly_eye",
+      "duration": 5.0,
+      "beat": "天眼开",
+      "narration": "三界万法，皆可藏形。",
+      "caption": "天眼开",
+      "prompt": "prompts/shot02_heavenly_eye.md",
+      "keyframe": "assets/keyframes/shot02_heavenly_eye.png",
+      "motion": { "zoom_start": 1.0, "zoom_end": 1.08, "pan_x": 0.50, "pan_y": 0.38 }
+    },
+    {
+      "id": "shot03_weapon_clash",
+      "duration": 6.0,
+      "beat": "兵器硬碰",
+      "narration": "可他偏要用一根棍子，打穿天命。",
+      "caption": "金箍棒\\n对三尖两刃刀",
+      "prompt": "prompts/shot03_weapon_clash.md",
+      "keyframe": "assets/keyframes/shot03_weapon_clash.png",
+      "motion": { "zoom_start": 1.0, "zoom_end": 1.10, "pan_x": 0.52, "pan_y": 0.50 }
+    },
+    {
+      "id": "shot04_clone_break",
+      "duration": 7.0,
+      "beat": "真身被锁定",
+      "narration": "分身万千，也逃不过这一眼。",
+      "caption": "真身\\n被锁定",
+      "prompt": "prompts/shot04_clone_break.md",
+      "keyframe": "assets/keyframes/shot04_clone_break.png",
+      "motion": { "zoom_start": 1.0, "zoom_end": 1.07, "pan_x": 0.48, "pan_y": 0.48 }
+    },
+    {
+      "id": "shot05_final_staff",
+      "duration": 6.0,
+      "beat": "压不住的齐天大圣",
+      "narration": "但他们忘了，看穿他，不等于能压住他。",
+      "caption": "压不住的\\n齐天大圣",
+      "prompt": "prompts/shot05_final_staff.md",
+      "keyframe": "assets/keyframes/shot05_final_staff.png",
+      "motion": { "zoom_start": 1.0, "zoom_end": 1.12, "pan_x": 0.50, "pan_y": 0.52 }
+    },
+    {
+      "id": "shot06_afterimage_hook",
+      "duration": 2.0,
+      "beat": "未完待续",
+      "narration": "这一战，才刚刚开始。",
+      "caption": "未完待续",
+      "prompt": "prompts/shot06_afterimage_hook.md",
+      "keyframe": "assets/keyframes/shot06_afterimage_hook.png",
+      "motion": { "zoom_start": 1.0, "zoom_end": 1.02, "pan_x": 0.50, "pan_y": 0.50 }
+    }
+  ],
+  "_note": "30秒暗黑神话样片。公版人物和原创视觉, 不复刻影视剧/游戏/抖音现有作品。"
+}
