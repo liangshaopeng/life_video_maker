@@ -54,6 +54,13 @@ def validate_project(project: dict, root: Path) -> list[str]:
         errors.append("canvas must be exactly 1080x1920 at 30fps")
 
     caption_maxlen = project.get("caption_maxlen", 14)
+    if not isinstance(caption_maxlen, int) or isinstance(caption_maxlen, bool) or caption_maxlen < 1:
+        errors.append("caption_maxlen must be a positive integer")
+        caption_maxlen = 14
+    elif caption_maxlen > 14:
+        errors.append("caption_maxlen must not exceed 14")
+
+    effective_caption_maxlen = min(caption_maxlen, 14)
     shots = project.get("shots")
     if not isinstance(shots, list) or len(shots) != 6:
         errors.append("project must contain exactly 6 shots")
@@ -80,8 +87,8 @@ def validate_project(project: dict, root: Path) -> list[str]:
         total += duration
         if duration < 2.0 or duration > 7.5:
             errors.append(f"{shot_id} duration outside 2.0-7.5 seconds")
-        if caption_visible_len(shot["caption"]) > caption_maxlen:
-            errors.append(f"{shot_id} caption exceeds {caption_maxlen} Chinese characters on one line")
+        if caption_visible_len(shot["caption"]) > effective_caption_maxlen:
+            errors.append(f"{shot_id} caption exceeds {effective_caption_maxlen} Chinese characters on one line")
         for rel_key in ("prompt", "keyframe"):
             path_value = shot[rel_key]
             if not _path_in_project(project_root, path_value):

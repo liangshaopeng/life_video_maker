@@ -69,3 +69,23 @@ def test_caption_maxlen_is_honored():
 
     errors = module.validate_project(project, PROJECT_DIR)
     assert any("caption exceeds 3 Chinese characters on one line" in err for err in errors)
+
+
+def test_caption_maxlen_higher_than_hard_cap_is_rejected():
+    module = load_validator()
+    project = copy.deepcopy(module.load_project(PROJECT_JSON))
+    project["caption_maxlen"] = 20
+    project["shots"][0]["caption"] = "齐天大圣降临"
+
+    errors = module.validate_project(project, PROJECT_DIR)
+    assert any("caption_maxlen must not exceed 14" in err for err in errors)
+
+
+def test_caption_uses_hard_cap_even_with_higher_maxlen():
+    module = load_validator()
+    project = copy.deepcopy(module.load_project(PROJECT_JSON))
+    project["caption_maxlen"] = 20
+    project["shots"][0]["caption"] = "齐天大圣降临天庭大战猴王降生光明顶"
+
+    errors = module.validate_project(project, PROJECT_DIR)
+    assert any("caption exceeds 14 Chinese characters on one line" in err for err in errors)
