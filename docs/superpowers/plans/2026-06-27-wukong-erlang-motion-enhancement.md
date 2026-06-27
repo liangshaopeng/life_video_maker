@@ -258,7 +258,7 @@ Expected: writes `wukong_erlang_sample_vertical.mp4` and QA thumbnails.
 - [ ] **Step 3: Mix BGM**
 
 ```bash
-bash 神话短剧/孙悟空大战二郎神-样片/scripts/mix_bgm.sh 神话短剧/孙悟空大战二郎神-样片/project.json
+bash 神话短剧/孙悟空大战二郎神-样片/scripts/mix_bgm.sh 神话短剧/孙悟空大战二郎神-样片/wukong_erlang_sample_vertical.mp4 神话短剧/孙悟空大战二郎神-样片/assets/bgm/dark_myth_bgm.wav 神话短剧/孙悟空大战二郎神-样片/wukong_erlang_sample_final.mp4
 ```
 
 Expected: writes `wukong_erlang_sample_final.mp4`.

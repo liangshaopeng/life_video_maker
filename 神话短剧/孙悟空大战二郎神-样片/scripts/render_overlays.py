@@ -185,17 +185,21 @@ def draw_speed_lines(draw: ImageDraw.ImageDraw, t: float, duration: float, color
 
 def draw_clone_shards(draw: ImageDraw.ImageDraw, t: float, duration: float):
     progress = min(1.0, max(0.0, t / max(0.001, duration)))
-    for i in range(18):
+    for i in range(26):
         seed = i * 9.37
         x = W * (0.18 + (i % 6) * 0.13) + math.sin(seed + t * 2.5) * 42
         y = H * (0.22 + (i // 6) * 0.18) + progress * 360 + math.cos(seed) * 54
-        alpha = int(95 + 70 * pulse(progress, 0.48 + (i % 5) * 0.04, 0.28))
-        draw.polygon(
-            [(x, y), (x + 34 + i % 5 * 8, y + 16), (x + 8, y + 70 + i % 4 * 11)],
-            outline=(116, 198, 255, alpha),
-            fill=(120, 160, 255, max(18, alpha // 5)),
-        )
-        draw.line((x - 18, y + 8, x + 72, y + 44), fill=(230, 245, 255, alpha), width=2)
+        alpha = int(55 + 82 * pulse(progress, 0.48 + (i % 5) * 0.04, 0.28))
+        length = 44 + (i % 5) * 16
+        tilt = -38 + (i % 4) * 14
+        draw.line((x, y, x + length, y + tilt), fill=(150, 218, 255, alpha), width=1 + (i % 3 == 0))
+        draw.line((x + 9, y + 22, x + length * 0.72, y + tilt + 30), fill=(80, 130, 220, max(0, alpha - 34)), width=1)
+        if i % 3 == 0:
+            size = 3 + (i % 4)
+            draw.polygon(
+                [(x + length * 0.30, y + 7), (x + length * 0.30 + size, y + 22), (x + length * 0.30 - size, y + 18)],
+                fill=(190, 230, 255, max(24, alpha // 2)),
+            )
 
 
 def draw_cinematic_effects(draw: ImageDraw.ImageDraw, shot: dict, t: float, duration: float) -> None:
