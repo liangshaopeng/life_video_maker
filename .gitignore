@@ -17,6 +17,14 @@
 *.avi
 *.m4v
 *.flv
+*.wmv
+*.mpg
+*.mpeg
+*.3gp
+*.mts
+*.m2ts
+*.mxf
+*.ogv
 
 # ---- 音频 (audio) ----
 *.mp3
@@ -25,8 +33,12 @@
 *.aif
 *.aac
 *.m4a
+*.m4p
 *.flac
 *.ogg
+*.opus
+*.wma
+*.caf
 
 # ---- 图片 / 渲染帧 (images & rendered frames) ----
 # 项目里的 png/jpg 基本是脚本生成的逐帧画面与下载的素材帧，可再生成
