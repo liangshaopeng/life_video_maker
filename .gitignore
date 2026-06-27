@@ -40,6 +40,7 @@
 # ---- 渲染中间产物目录 (build artifacts) ----
 build/
 _bak_resume/
+.worktrees
 .worktrees/
 
 # ---- 日志与备份 ----
