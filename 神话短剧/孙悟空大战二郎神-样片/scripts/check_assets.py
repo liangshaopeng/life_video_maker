@@ -27,11 +27,14 @@ def check_keyframes(project_path: Path) -> list[str]:
             continue
         try:
             with Image.open(img_path) as img:
+                if img.format != "PNG":
+                    errors.append(f"{shot['id']}: keyframe is not PNG, got {img.format}")
+                    continue
                 width, height = img.size
         except Exception as exc:
             errors.append(f"{shot['id']}: unreadable image {img_path}: {exc}")
             continue
-        if width < 1080 or height < 1440:
+        if width < 1080 or height < 1920:
             errors.append(f"{shot['id']}: keyframe too small {width}x{height}")
         if height <= width:
             errors.append(f"{shot['id']}: keyframe must be portrait, got {width}x{height}")
