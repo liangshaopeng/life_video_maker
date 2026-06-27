@@ -192,3 +192,34 @@ def test_overlay_frames_exist_after_render():
         with Image.open(first) as img:
             assert img.size == (1080, 1920)
             assert img.mode == "RGBA"
+
+
+def ffprobe_stream(path: Path) -> dict:
+    raw = subprocess.check_output([
+        "ffprobe", "-v", "error", "-select_streams", "v:0",
+        "-show_entries", "stream=width,height,r_frame_rate",
+        "-show_entries", "format=duration",
+        "-of", "json", str(path)
+    ]).decode()
+    return json.loads(raw)
+
+
+def test_final_exports_match_contract():
+    for name in ["wukong_erlang_sample_vertical.mp4", "wukong_erlang_sample_final.mp4"]:
+        path = PROJECT_DIR / name
+        assert path.exists()
+        info = ffprobe_stream(path)
+        stream = info["streams"][0]
+        duration = float(info["format"]["duration"])
+        assert stream["width"] == 1080
+        assert stream["height"] == 1920
+        assert 28.0 <= duration <= 32.5
+
+
+def test_qa_thumbnails_exist():
+    qa = PROJECT_DIR / "build" / "qa"
+    for name in ["qa_0003.jpg", "qa_0011.jpg", "qa_0020.jpg", "qa_0029.jpg"]:
+        path = qa / name
+        assert path.exists()
+        with Image.open(path) as img:
+            assert img.size[1] > img.size[0]

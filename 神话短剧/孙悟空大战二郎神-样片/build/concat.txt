@@ -1,0 +1,6 @@
+file '/Users/liangshaopeng_backup/code/life/life_video_maker/.worktrees/wukong-erlang-sample/神话短剧/孙悟空大战二郎神-样片/build/clips/clip01.mp4'
+file '/Users/liangshaopeng_backup/code/life/life_video_maker/.worktrees/wukong-erlang-sample/神话短剧/孙悟空大战二郎神-样片/build/clips/clip02.mp4'
+file '/Users/liangshaopeng_backup/code/life/life_video_maker/.worktrees/wukong-erlang-sample/神话短剧/孙悟空大战二郎神-样片/build/clips/clip03.mp4'
+file '/Users/liangshaopeng_backup/code/life/life_video_maker/.worktrees/wukong-erlang-sample/神话短剧/孙悟空大战二郎神-样片/build/clips/clip04.mp4'
+file '/Users/liangshaopeng_backup/code/life/life_video_maker/.worktrees/wukong-erlang-sample/神话短剧/孙悟空大战二郎神-样片/build/clips/clip05.mp4'
+file '/Users/liangshaopeng_backup/code/life/life_video_maker/.worktrees/wukong-erlang-sample/神话短剧/孙悟空大战二郎神-样片/build/clips/clip06.mp4'
