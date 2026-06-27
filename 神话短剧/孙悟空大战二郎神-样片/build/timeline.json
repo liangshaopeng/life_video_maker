@@ -1,54 +1,54 @@
 {
-  "total": 21.984,
+  "total": 30.0,
   "pad": 0.18,
   "segs": [
     {
       "seg": 1,
       "id": "shot01_heavenly_siege",
-      "audio": 4.392,
-      "clip": 4.572,
+      "audio": 3.768,
+      "clip": 4.0,
       "start": 0.0,
-      "end": 4.572
+      "end": 4.0
     },
     {
       "seg": 2,
       "id": "shot02_heavenly_eye",
       "audio": 3.0,
-      "clip": 3.18,
-      "start": 4.572,
-      "end": 7.752
+      "clip": 5.0,
+      "start": 4.0,
+      "end": 9.0
     },
     {
       "seg": 3,
       "id": "shot03_weapon_clash",
       "audio": 3.336,
-      "clip": 3.516,
-      "start": 7.752,
-      "end": 11.268
+      "clip": 6.0,
+      "start": 9.0,
+      "end": 15.0
     },
     {
       "seg": 4,
       "id": "shot04_clone_break",
       "audio": 3.264,
-      "clip": 3.444,
-      "start": 11.268,
-      "end": 14.712
+      "clip": 7.0,
+      "start": 15.0,
+      "end": 22.0
     },
     {
       "seg": 5,
       "id": "shot05_final_staff",
       "audio": 4.032,
-      "clip": 4.212,
-      "start": 14.712,
-      "end": 18.924
+      "clip": 6.0,
+      "start": 22.0,
+      "end": 28.0
     },
     {
       "seg": 6,
       "id": "shot06_afterimage_hook",
-      "audio": 2.88,
-      "clip": 3.06,
-      "start": 18.924,
-      "end": 21.984
+      "audio": 1.968,
+      "clip": 2.0,
+      "start": 28.0,
+      "end": 30.0
     }
   ]
 }

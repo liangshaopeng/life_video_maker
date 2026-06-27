@@ -103,6 +103,22 @@ def test_narration_outputs_exist_after_generation():
     assert (PROJECT_DIR / "build" / "timeline.json").exists()
 
 
+def test_timeline_uses_shot_durations_and_keeps_audio_within_clip():
+    project = json.loads(PROJECT_JSON.read_text(encoding="utf-8"))
+    timeline = json.loads((PROJECT_DIR / "build" / "timeline.json").read_text(encoding="utf-8"))
+
+    shot_durations = [float(shot["duration"]) for shot in project["shots"]]
+    assert 28.0 <= float(timeline["total"]) <= 32.0
+    assert len(timeline["segs"]) == len(shot_durations)
+
+    for index, (seg, expected_clip) in enumerate(zip(timeline["segs"], shot_durations), 1):
+        audio = PROJECT_DIR / "build" / "audio" / f"seg{index}.mp3"
+        audio_duration = ffprobe_duration(audio)
+        assert abs(float(seg["clip"]) - expected_clip) < 0.01
+        assert float(seg["end"]) - float(seg["start"]) == float(seg["clip"])
+        assert audio_duration <= float(seg["clip"]) + 0.02
+
+
 def test_bgm_exists_and_is_long_enough():
     bgm = PROJECT_DIR / "assets" / "bgm" / "dark_myth_bgm.wav"
     assert bgm.exists()

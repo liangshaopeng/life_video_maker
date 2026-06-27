@@ -35,6 +35,20 @@ SOFT = "，,、；;：:"
 GLUE_HEAD = "就是的了吧呢吗啊呀和与跟也都还把被对向给"
 
 
+def _parse_rate_percent(rate):
+    m = re.fullmatch(r"([+-]?)(\d+(?:\.\d+)?)%", str(rate).strip())
+    if not m:
+        return None
+    sign = -1 if m.group(1) == "-" else 1
+    return sign * float(m.group(2))
+
+
+def _format_rate_percent(rate):
+    rate = int(round(rate))
+    sign = "+" if rate >= 0 else "-"
+    return f"{sign}{abs(rate)}%"
+
+
 def to_spoken(s):
     for disp, spk in HOMO.items():
         s = s.replace(disp, spk)
@@ -208,13 +222,21 @@ for i, seg in enumerate(segments, 1):
     vtt = os.path.join(SUB, f"seg{i}.srt")
     import time as _time
 
+    clip = float(seg["duration"]) if "duration" in seg else None
+    base_rate = _parse_rate_percent(RATE)
+    rate = base_rate
+    d = None
     for _try in range(6):
+        if clip is not None and d is not None and d > clip and rate is not None:
+            bump = max(10.0, ((d / clip) - 1.0) * 100.0 + 8.0)
+            rate = base_rate + bump
+        rate_arg = _format_rate_percent(rate) if rate is not None else RATE
         r = subprocess.run([
             "python3",
             "-m",
             "edge_tts",
             f"--voice={VOICE}",
-            f"--rate={RATE}",
+            f"--rate={rate_arg}",
             f"--pitch={PITCH}",
             f"--volume={VOLUME}",
             f"--text={spoken}",
@@ -222,13 +244,14 @@ for i, seg in enumerate(segments, 1):
             f"--write-subtitles={raw}",
         ], stderr=subprocess.DEVNULL)
         if r.returncode == 0 and os.path.exists(mp3) and os.path.getsize(mp3) > 1200:
-            break
+            d = dur(mp3)
+            if clip is None or d <= clip:
+                break
         print(f"  seg{i} edge-tts 第{_try + 1}次失败,重试…")
         _time.sleep(2.0)
     else:
         sys.exit(f"seg{i} edge-tts 多次失败")
-    d = dur(mp3)
-    clip = d + PAD
+    clip = d + PAD if clip is None else clip
     fine = fine_cues(parse_srt(raw))
     fine = [(st, min(en, d), to_display(t)) for st, en, t in fine]
     write_srt(vtt, fine)
