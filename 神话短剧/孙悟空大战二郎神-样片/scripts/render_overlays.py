@@ -24,23 +24,34 @@ def font(size: int) -> ImageFont.FreeTypeFont:
 
 def parse_srt(path: Path):
     if not path.exists():
-        return []
-    blocks = re.split(r"\n\s*\n", path.read_text(encoding="utf-8").strip())
+        raise FileNotFoundError(path)
+    raw = path.read_text(encoding="utf-8")
+    if not raw.strip():
+        raise ValueError(f"empty SRT file: {path}")
+
+    blocks = re.split(r"\n\s*\n", raw.strip())
     cues = []
     for block in blocks:
-        lines = [line.strip() for line in block.splitlines() if line.strip()]
+        lines = [line.rstrip("\r") for line in block.splitlines()]
         if len(lines) < 3:
-            continue
-        m = re.search(
-            r"(\d+):(\d+):(\d+),(\d+)\s+-->\s+(\d+):(\d+):(\d+),(\d+)",
-            block,
+            raise ValueError(f"malformed SRT block in {path}: {block!r}")
+        if not lines[0].strip().isdigit():
+            raise ValueError(f"malformed SRT cue index in {path}: {lines[0]!r}")
+        m = re.fullmatch(
+            r"\s*(\d+):(\d+):(\d+),(\d+)\s+-->\s+(\d+):(\d+):(\d+),(\d+)\s*",
+            lines[1],
         )
         if not m:
-            continue
+            raise ValueError(f"malformed SRT timestamp in {path}: {lines[1]!r}")
         g = list(map(int, m.groups()))
         st = g[0] * 3600 + g[1] * 60 + g[2] + g[3] / 1000
         en = g[4] * 3600 + g[5] * 60 + g[6] + g[7] / 1000
-        cues.append((st, en, lines[-1]))
+        text_lines = [line.strip() for line in lines[2:] if line.strip()]
+        if not text_lines:
+            raise ValueError(f"empty SRT cue text in {path}: {block!r}")
+        cues.append((st, en, "\n".join(text_lines)))
+    if not cues:
+        raise ValueError(f"no cues found in SRT file: {path}")
     return cues
 
 

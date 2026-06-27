@@ -1,20 +1,63 @@
 import importlib.util
 import json
 import subprocess
+import sys
 from pathlib import Path
 
 from PIL import Image
+import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 PROJECT_DIR = ROOT / "神话短剧" / "孙悟空大战二郎神-样片"
 PROJECT_JSON = PROJECT_DIR / "project.json"
 
 
-def load_module(path: Path, name: str):
+def load_module(path: Path, name: str, argv=None):
+    old_argv = sys.argv[:]
+    if argv is not None:
+        sys.argv = argv
     spec = importlib.util.spec_from_file_location(name, path)
     module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
+    try:
+        spec.loader.exec_module(module)
+    finally:
+        sys.argv = old_argv
     return module
+
+
+def test_parse_srt_missing_file_raises(tmp_path):
+    module = load_module(
+        PROJECT_DIR / "scripts" / "render_overlays.py",
+        "wukong_render_overlays",
+        argv=["render_overlays.py", str(PROJECT_JSON)],
+    )
+    missing = tmp_path / "missing.srt"
+    with pytest.raises((FileNotFoundError, ValueError)):
+        module.parse_srt(missing)
+
+
+def test_parse_srt_preserves_multiline_cue_text(tmp_path):
+    module = load_module(
+        PROJECT_DIR / "scripts" / "render_overlays.py",
+        "wukong_render_overlays_multiline",
+        argv=["render_overlays.py", str(PROJECT_JSON)],
+    )
+    srt = tmp_path / "multiline.srt"
+    srt.write_text(
+        "\n".join(
+            [
+                "1",
+                "00:00:00,000 --> 00:00:02,000",
+                "第一行",
+                "第二行",
+                "",
+            ]
+        ),
+        encoding="utf-8",
+    )
+    cues = module.parse_srt(srt)
+    assert len(cues) == 1
+    assert cues[0][2] == "第一行\n第二行"
 
 
 def test_check_assets_reports_missing_keyframes_before_generation(tmp_path):
