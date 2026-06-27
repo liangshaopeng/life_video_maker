@@ -117,6 +117,10 @@ def _clauses(text):
     return out
 
 
+def _visible_len(text):
+    return len(text.strip())
+
+
 def _merge_lines(clauses, maxlen):
     lines = []
     for p in clauses:
@@ -124,13 +128,13 @@ def _merge_lines(clauses, maxlen):
             lines.append(p)
             continue
         prev = lines[-1]
-        cl = len(prev.rstrip(PUNC))
-        al = len(p.rstrip(PUNC))
+        cl = _visible_len(prev)
+        al = _visible_len(p)
         tiny = cl < 4 or al < 4
         prev_strong = prev.rstrip()[-1:] in STRONG
         if prev_strong and not tiny:
             lines.append(p)
-        elif cl + al <= maxlen or (tiny and cl + al <= maxlen + 4):
+        elif _visible_len(prev + p) <= maxlen or (tiny and _visible_len(prev + p) <= maxlen + 4):
             lines[-1] += p
         else:
             lines.append(p)
@@ -154,14 +158,19 @@ def _protect_cut(c, k, names):
 
 def _hardwrap(line, maxlen, names):
     out = []
-    c = line
-    while len(c.rstrip(PUNC)) > maxlen + 4:
+    c = line.strip()
+    while _visible_len(c) > maxlen:
         k = _protect_cut(c, _ascii_safe_cut(c, maxlen), names)
         if k < 2:
             k = _ascii_safe_cut(c, maxlen)
-        out.append(c[:k])
-        c = c[k:]
-    out.append(c)
+        part = c[:k].strip()
+        if not part:
+            k = min(len(c), maxlen)
+            part = c[:k].strip()
+        out.append(part)
+        c = c[k:].lstrip()
+    if c:
+        out.append(c)
     return out
 
 
@@ -182,10 +191,10 @@ def fine_cues(cues, maxlen=CAP_MAXLEN, names=NO_SPLIT):
     idx = 0
     for ln in lines:
         L = len(ln)
-        a = char_t[min(idx, N - 1)][0]
-        b = char_t[min(idx + L - 1, N - 1)][1]
         disp = ln.strip().rstrip(SOFT + " ")
         if disp:
+            a = char_t[min(idx, N - 1)][0]
+            b = char_t[min(idx + L - 1, N - 1)][1]
             out.append((a, b, disp))
         idx += L
     return out

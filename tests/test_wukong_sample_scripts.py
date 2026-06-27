@@ -91,6 +91,19 @@ def ffprobe_duration(path: Path) -> float:
     )
 
 
+def test_generated_subtitles_respect_caption_width():
+    project = json.loads(PROJECT_JSON.read_text(encoding="utf-8"))
+    maxlen = int(project["caption_maxlen"])
+    for srt in sorted((PROJECT_DIR / "build" / "subs").glob("*.srt")):
+        if srt.name.endswith("_raw.srt"):
+            continue
+        for line in srt.read_text(encoding="utf-8").splitlines():
+            text = line.strip()
+            if not text or text.isdigit() or "-->" in text:
+                continue
+            assert len(text) <= maxlen, f"{srt.name}: {text!r}"
+
+
 def test_narration_outputs_exist_after_generation():
     project = json.loads(PROJECT_JSON.read_text(encoding="utf-8"))
     for index, shot in enumerate(project["shots"], 1):
