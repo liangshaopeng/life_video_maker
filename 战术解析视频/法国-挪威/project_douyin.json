@@ -1,0 +1,71 @@
+{
+  "name": "france-norway-douyin-style",
+  "output_dir": ".",
+  "build_dir": "build_douyin",
+  "footage_default": "footage/france_norway_fox.mp4",
+  "voice": { "name": "zh-CN-YunjianNeural", "rate": "+34%", "pitch": "+4Hz", "volume": "+12%" },
+  "pad": 0.12,
+  "caption_maxlen": 14,
+  "no_split": ["姆巴佩", "哈兰德", "登贝莱", "厄德高", "索尔洛特", "迈尼昂", "杜埃", "奥利塞", "特奥", "琼阿梅尼", "拉尔森", "于帕梅卡诺", "法国", "挪威"],
+  "grade": "eq=contrast=1.08:saturation=1.18:brightness=-0.01",
+  "blur_sigma": 16,
+  "theme": { "sky": [96,178,240], "gold": [252,164,52], "navy": [8,14,30], "warn": [244,86,80], "good": [74,210,140], "line": [120,200,255], "chip_text": [14,22,44] },
+  "watermark": "思考的我",
+  "_note": "私人参考版:参考当前抖音 @足坛风云FC 的快节奏章节式足球解说。BGM 使用 reference/we_are_love.mp3。",
+  "segments": [
+    {
+      "id": "hook",
+      "text": "赛前所有人都以为,这是姆巴佩对哈兰德。结果名单一出,哈兰德不上,厄德高也不上。挪威想留牌,法国直接开拆。",
+      "footage": { "start": 10.0, "speed": 1.0, "blur": [[0,0,520,76],[840,0,240,76]] },
+      "overlay": { "layout": "title", "title": "姆哈对决没来\n法国先开拆", "subtitle": "法国 4-1 挪威" }
+    },
+    {
+      "id": "mbappe",
+      "text": "开场二十秒,姆巴佩先给警告。身后启动,小角度抽射,球砸横梁。挪威还没热身,法国已经提速。",
+      "footage": { "start": 61.5, "speed": 0.72, "blur": [[0,0,520,76],[840,0,240,76]] },
+      "overlay": { "layout": "story", "phase": "第1章: 姆巴佩", "accent": "gold", "title": "二十秒先敲横梁", "kicker": "法国开场就提速", "stamp": "00:20" }
+    },
+    {
+      "id": "dembele_first",
+      "text": "第一球不是姆巴佩进的,但还是他带出来的。分到右路,登贝莱假内切,真右脚,远角一抽,一比零。",
+      "footage": { "start": 132.0, "speed": 0.6, "blur": [[0,0,520,76],[840,0,240,76]] },
+      "overlay": { "layout": "story", "phase": "第2章: 登贝莱", "accent": "good", "title": "主角开始换人", "kicker": "假内切 · 真右脚", "stamp": "1-0" }
+    },
+    {
+      "id": "miss",
+      "text": "挪威其实有机会。索尔洛特这脚,几乎就是扳平。可这种比赛,机会没吃掉,下一秒就要还。",
+      "footage": { "start": 292.0, "speed": 0.75, "blur": [[0,0,520,76],[840,0,240,76]] },
+      "overlay": { "layout": "story", "phase": "第3章: 转折", "accent": "warn", "title": "机会来了,没进", "kicker": "错过就要付账", "stamp": "MISS" }
+    },
+    {
+      "id": "dembele_second",
+      "text": "马上,法国还账单。姆巴佩背身吸住防守,登贝莱跟上兜远角。二比零。姆巴佩没进,但他把人全带走了。",
+      "footage": { "start": 344.0, "speed": 0.6, "blur": [[0,0,520,76],[840,0,240,76]] },
+      "overlay": { "layout": "story", "phase": "第4章: 吸防", "accent": "good", "title": "姆巴佩牵人\n登贝莱收割", "kicker": "法国的强点不止一个", "stamp": "2-0" }
+    },
+    {
+      "id": "sorloth",
+      "text": "挪威开球后马上追回一个。索尔洛特转身,甩开于帕梅卡诺,推近角。哈兰德没上,挪威也不是完全没威胁。",
+      "footage": { "start": 420.0, "speed": 0.62, "blur": [[0,0,520,76],[840,0,240,76]] },
+      "overlay": { "layout": "story", "phase": "第5章: 回应", "accent": "warn", "title": "挪威扳回一口气", "kicker": "悬念刚回来", "stamp": "2-1" }
+    },
+    {
+      "id": "hat",
+      "text": "但悬念只活了几分钟。登贝莱还是右路内切,还是同一个套路,挪威就是挡不住。三十一分钟,帽子戏法。",
+      "footage": { "start": 493.0, "speed": 0.58, "blur": [[0,0,520,76],[840,0,240,76]] },
+      "overlay": { "layout": "story", "phase": "第6章: 戴帽", "accent": "gold", "title": "登贝莱把戏抢完了", "kicker": "31分钟帽子戏法", "stamp": "3-1" }
+    },
+    {
+      "id": "save",
+      "text": "下半场挪威还有点球。问题是,哈兰德不在。拉尔森主罚,迈尼昂扑出。比赛最后的口子,也被法国堵上。",
+      "footage": { "start": 676.0, "speed": 0.65, "blur": [[0,0,520,76],[840,0,240,76]] },
+      "overlay": { "layout": "story", "phase": "第7章: 扑点", "accent": "warn", "title": "哈兰德不在\n谁来罚这脚", "kicker": "迈尼昂关门", "stamp": "SAVE" }
+    },
+    {
+      "id": "finish",
+      "text": "最后杜埃再进一个,四比一。赛前等的是姆巴佩和哈兰德,赛后看到的是法国厚度。你到底防谁,这才是问题。",
+      "footage": { "start": 985.0, "speed": 0.62, "blur": [[0,0,520,76],[840,0,240,76]] },
+      "overlay": { "layout": "end", "title": "不止姆巴佩", "subtitle": "法国真正可怕的是厚度" }
+    }
+  ]
+}

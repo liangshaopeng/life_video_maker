@@ -1,0 +1,4 @@
+interface:
+  display_name: "叙事性足球解析"
+  short_description: "叙事包袱、音乐转场、真实比赛足球短片解析生产流程指南"
+  default_prompt: "Use $narrative-football-analysis-video to make a narrative football analysis short video from match footage."

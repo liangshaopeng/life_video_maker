@@ -1,0 +1,54 @@
+{
+  "total": 118.116,
+  "pad": 0.25,
+  "segs": [
+    {
+      "seg": 1,
+      "id": "hook",
+      "audio": 16.08,
+      "clip": 16.33,
+      "start": 0.0,
+      "end": 16.33
+    },
+    {
+      "seg": 2,
+      "id": "no_offside",
+      "audio": 22.056,
+      "clip": 22.306,
+      "start": 16.33,
+      "end": 38.636
+    },
+    {
+      "seg": 3,
+      "id": "offside_space",
+      "audio": 16.176,
+      "clip": 16.426,
+      "start": 38.636,
+      "end": 55.062
+    },
+    {
+      "seg": 4,
+      "id": "push_pull",
+      "audio": 17.784,
+      "clip": 18.034,
+      "start": 55.062,
+      "end": 73.096
+    },
+    {
+      "seg": 5,
+      "id": "timing",
+      "audio": 24.072,
+      "clip": 24.322,
+      "start": 73.096,
+      "end": 97.418
+    },
+    {
+      "seg": 6,
+      "id": "meaning",
+      "audio": 20.448,
+      "clip": 20.698,
+      "start": 97.418,
+      "end": 118.116
+    }
+  ]
+}

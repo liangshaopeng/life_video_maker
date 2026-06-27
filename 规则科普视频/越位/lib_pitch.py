@@ -79,6 +79,34 @@ def draw_offside_line(img, ny, col=None, dash=34, gap=22, w=7):
         x += dash + gap
     return img
 
+def draw_offside_zone(img, ny, label="越位区"):
+    """把越位线身后的投机空间染红:ny 以上是提前蹲门口的区域。"""
+    y = Y0 + ny * FH
+    ov = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    od = ImageDraw.Draw(ov)
+    od.rectangle([X0, Y0, X0 + FW, y], fill=tuple(C("warn")) + (54,))
+    img.alpha_composite(ov)
+    d = ImageDraw.Draw(img)
+    d.text((X0 + FW - 24, Y0 + 44), label, font=font("b", 34),
+           fill=tuple(C("warn")) + (235,), anchor="ra",
+           stroke_width=3, stroke_fill=tuple(C("navy")) + (220,))
+    return img
+
+def draw_battle_zone(img, ny0, ny1, label="对抗博弈区"):
+    """高亮越位线附近的窄带,强调进攻和防守被压到同一条线附近。"""
+    top = Y0 + min(ny0, ny1) * FH
+    bot = Y0 + max(ny0, ny1) * FH
+    ov = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    od = ImageDraw.Draw(ov)
+    od.rectangle([X0, top, X0 + FW, bot], fill=tuple(C("gold")) + (64,))
+    img.alpha_composite(ov)
+    draw_offside_line(img, min(ny0, ny1), col=tuple(C("gold")) + (235,), dash=26, gap=16, w=5)
+    draw_offside_line(img, max(ny0, ny1), col=tuple(C("gold")) + (235,), dash=26, gap=16, w=5)
+    ImageDraw.Draw(img).text((W // 2, top - 34), label, font=font("b", 36),
+                             fill=tuple(C("gold")) + (255,), anchor="mm",
+                             stroke_width=3, stroke_fill=tuple(C("navy")) + (230,))
+    return img
+
 def draw_ball(img, nx, ny):
     d = ImageDraw.Draw(img)
     px, py = to_px(nx, ny)
@@ -113,6 +141,13 @@ def render_pitch_frame(spec, tt):
     f = new_frame()
     draw_pitch(f)
     ol = spec.get("offside_line")
+    oz = spec.get("offside_zone")
+    if oz:
+        draw_offside_zone(f, interp(oz["keys"], tt)[0], oz.get("label", "越位区"))
+    bz = spec.get("battle_zone")
+    if bz:
+        k = interp(bz["keys"], tt)
+        draw_battle_zone(f, k[0], k[1], bz.get("label", "对抗博弈区"))
     if ol:
         draw_offside_line(f, interp(ol["keys"], tt)[0])
     for ar in spec.get("arrows", []):

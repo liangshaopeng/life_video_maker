@@ -1,0 +1,78 @@
+{
+  "total": 74.136,
+  "pad": 0.12,
+  "segs": [
+    {
+      "seg": 1,
+      "id": "hook",
+      "audio": 8.424,
+      "clip": 8.544,
+      "start": 0.0,
+      "end": 8.544
+    },
+    {
+      "seg": 2,
+      "id": "mbappe",
+      "audio": 7.944,
+      "clip": 8.064,
+      "start": 8.544,
+      "end": 16.608
+    },
+    {
+      "seg": 3,
+      "id": "dembele_first",
+      "audio": 7.632,
+      "clip": 7.752,
+      "start": 16.608,
+      "end": 24.36
+    },
+    {
+      "seg": 4,
+      "id": "miss",
+      "audio": 7.2,
+      "clip": 7.32,
+      "start": 24.36,
+      "end": 31.68
+    },
+    {
+      "seg": 5,
+      "id": "dembele_second",
+      "audio": 8.88,
+      "clip": 9.0,
+      "start": 31.68,
+      "end": 40.68
+    },
+    {
+      "seg": 6,
+      "id": "sorloth",
+      "audio": 8.04,
+      "clip": 8.16,
+      "start": 40.68,
+      "end": 48.84
+    },
+    {
+      "seg": 7,
+      "id": "hat",
+      "audio": 7.728,
+      "clip": 7.848,
+      "start": 48.84,
+      "end": 56.688
+    },
+    {
+      "seg": 8,
+      "id": "save",
+      "audio": 8.52,
+      "clip": 8.64,
+      "start": 56.688,
+      "end": 65.328
+    },
+    {
+      "seg": 9,
+      "id": "finish",
+      "audio": 8.688,
+      "clip": 8.808,
+      "start": 65.328,
+      "end": 74.136
+    }
+  ]
+}

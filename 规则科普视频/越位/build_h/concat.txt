@@ -1,0 +1,6 @@
+file '/Users/liangshaopeng_backup/code/life/life_video_maker/规则科普视频/越位/build_h/clips/clip1.mp4'
+file '/Users/liangshaopeng_backup/code/life/life_video_maker/规则科普视频/越位/build_h/clips/clip2.mp4'
+file '/Users/liangshaopeng_backup/code/life/life_video_maker/规则科普视频/越位/build_h/clips/clip3.mp4'
+file '/Users/liangshaopeng_backup/code/life/life_video_maker/规则科普视频/越位/build_h/clips/clip4.mp4'
+file '/Users/liangshaopeng_backup/code/life/life_video_maker/规则科普视频/越位/build_h/clips/clip5.mp4'
+file '/Users/liangshaopeng_backup/code/life/life_video_maker/规则科普视频/越位/build_h/clips/clip6.mp4'

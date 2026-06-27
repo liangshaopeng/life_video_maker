@@ -1,0 +1,16 @@
+{
+  "automation_id": "fox",
+  "channel_url": "https://www.youtube.com/@foxsports",
+  "processed_videos": [
+    {
+      "video_id": "VB1B9bkj2xc",
+      "url": "https://www.youtube.com/watch?v=VB1B9bkj2xc",
+      "title": "Norway vs France Extended Highlights \ud83c\udf0e\ud83c\udfc6 2026 FIFA World Cup\u2122",
+      "published": "2026-06-26T21:28:37+00:00",
+      "processed_at": "2026-06-27T09:18:09+08:00",
+      "project_dir": "战术解析视频/法国-挪威",
+      "output": "战术解析视频/法国-挪威/france-norway-douyin-style_vertical.mp4",
+      "status": "completed"
+    }
+  ]
+}

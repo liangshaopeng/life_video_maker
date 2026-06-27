@@ -301,7 +301,7 @@ def _wrap(text,fnt,maxw):
 def draw_caption(f,text,y=1690):
     if not text: return
     d=ImageDraw.Draw(f); fnt=font("b",50)
-    lines=_wrap(text,fnt,980); n=len(lines); lh=64
+    lines=_wrap(text,fnt,820); n=len(lines); lh=64
     for k,ln in enumerate(lines):
         ctext(d,(W//2,y-(n-1-k)*lh),ln,fnt,C("white"),stroke=5,sfill=(6,10,20))
 

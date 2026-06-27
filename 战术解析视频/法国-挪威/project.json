@@ -1,0 +1,77 @@
+{
+  "name": "france-norway-story",
+  "output_dir": ".",
+  "build_dir": "build",
+  "footage_default": "footage/france_norway_fox.mp4",
+  "voice": { "name": "zh-CN-YunjianNeural", "rate": "+25%", "pitch": "+3Hz", "volume": "+12%" },
+  "pad": 0.18,
+  "caption_maxlen": 16,
+  "no_split": ["姆巴佩", "哈兰德", "登贝莱", "厄德高", "索尔洛特", "迈尼昂", "杜埃", "奥利塞", "特奥", "琼阿梅尼", "拉尔森", "谢尔德鲁普", "塞尔维克", "于帕梅卡诺", "法国", "挪威"],
+  "grade": "eq=contrast=1.08:saturation=1.18:brightness=-0.01",
+  "blur_sigma": 16,
+  "theme": { "sky": [96,178,240], "gold": [252,164,52], "navy": [8,14,30], "warn": [244,86,80], "good": [74,210,140], "line": [120,200,255], "chip_text": [14,22,44] },
+  "watermark": "思考的我",
+  "_note": "FOX Extended Highlights VB1B9bkj2xc。新方向:参考抖音范例做情绪叙事,少卡片少数据。事实:挪威轮休哈兰德和厄德高;姆巴佩开场中楣;登贝莱31分钟戴帽;索尔洛特扳回;迈尼昂扑点;杜埃头球,法国4-1小组第一。",
+  "segments": [
+    {
+      "id": "hook",
+      "text": "所有人都等着看姆巴佩对哈兰德,结果名单一出来,故事先反转。哈兰德和厄德高都不首发。挪威想把王牌藏起来,法国却直接把这场球踢成了一次示威。",
+      "footage": { "start": 10.0, "speed": 1.0, "blur": [[0,0,520,76],[840,0,240,76]] },
+      "overlay": { "layout": "title", "title": "等姆哈对决?\n法国先亮刀", "subtitle": "法国 4-1 挪威" }
+    },
+    {
+      "id": "mbappe-warning",
+      "text": "开场才二十秒,姆巴佩就从身后钻出来,一脚轰在横梁下沿。挪威还没进入比赛,法国已经把节奏抢走了。",
+      "footage": { "start": 61.5, "speed": 0.7, "blur": [[0,0,520,76],[840,0,240,76]] },
+      "overlay": { "layout": "story", "phase": "二十秒警告", "accent": "gold", "title": "姆巴佩先敲横梁", "kicker": "悬念差点开场就碎", "stamp": "00:20" }
+    },
+    {
+      "id": "dembele-first",
+      "text": "真正打开缺口的是登贝莱。姆巴佩把球送到右路,他先骗左脚,再扣回右脚,远角一抽,一比零。主角,开始换人了。",
+      "footage": { "start": 132.0, "speed": 0.6, "blur": [[0,0,520,76],[840,0,240,76]] },
+      "overlay": { "layout": "story", "phase": "第一刀", "accent": "good", "title": "登贝莱抢走开场", "kicker": "假内切 · 真右脚", "stamp": "1-0" }
+    },
+    {
+      "id": "norway-miss",
+      "text": "挪威不是没有机会。索尔洛特这一下,几乎就是扳平球。可弱势一方的机会往往只有一两次,你没吃下去,法国马上让你付账。",
+      "footage": { "start": 292.0, "speed": 0.74, "blur": [[0,0,520,76],[840,0,240,76]] },
+      "overlay": { "layout": "story", "phase": "转折点", "accent": "warn", "title": "挪威错过答案", "kicker": "机会来了,没吃下", "stamp": "MISS" }
+    },
+    {
+      "id": "dembele-second",
+      "text": "下一分钟惩罚就来了。姆巴佩背身把防守吸住,登贝莱第一脚兜远角,二比零。姆巴佩没进球,但防线已经被他牵走了。",
+      "footage": { "start": 344.0, "speed": 0.6, "blur": [[0,0,520,76],[840,0,240,76]] },
+      "overlay": { "layout": "story", "phase": "第二刀", "accent": "good", "title": "姆巴佩当磁铁\n登贝莱来收割", "kicker": "不进球,也能改变防线", "stamp": "2-0" }
+    },
+    {
+      "id": "sorloth-answer",
+      "text": "挪威刚开球就追回一个。索尔洛特转身甩开于帕梅卡诺,推近角得手。哈兰德不在,挪威仍然有中锋能制造问题。",
+      "footage": { "start": 420.0, "speed": 0.6, "blur": [[0,0,520,76],[840,0,240,76]] },
+      "overlay": { "layout": "story", "phase": "悬念回来", "accent": "warn", "title": "索尔洛特扳回一口气", "kicker": "挪威不是没有牙", "stamp": "2-1" }
+    },
+    {
+      "id": "dembele-hat",
+      "text": "但悬念只活了几分钟。登贝莱又在右路内切,挪威明知道他要这么踢,就是挡不住。三十一分钟帽子戏法,这不是姆哈对决,这是登贝莱发布会。",
+      "footage": { "start": 493.0, "speed": 0.58, "blur": [[0,0,520,76],[840,0,240,76]] },
+      "overlay": { "layout": "story", "phase": "帽子戏法", "accent": "gold", "title": "登贝莱把戏抢完了", "kicker": "31分钟 · 半场戴帽", "stamp": "3-1" }
+    },
+    {
+      "id": "maignan-save",
+      "text": "下半场,挪威还有一次把比赛拉回来的机会。点球来了,可哈兰德不在场上。拉尔森主罚,迈尼昂扑出。最后一口气,也被按回去了。",
+      "footage": { "start": 676.0, "speed": 0.64, "blur": [[0,0,520,76],[840,0,240,76]] },
+      "overlay": { "layout": "story", "phase": "最后机会", "accent": "warn", "title": "哈兰德不在\n谁来罚这脚?", "kicker": "迈尼昂把门关上", "stamp": "SAVE" }
+    },
+    {
+      "id": "doue-finish",
+      "text": "最后法国替补席还要补一刀。右路传中,杜埃无人盯防,头球砸进网窝。四比一。你以为法国只有姆巴佩,他们却把登贝莱、迈尼昂、杜埃全打出来了。",
+      "footage": { "start": 985.0, "speed": 0.62, "blur": [[0,0,520,76],[840,0,240,76]] },
+      "overlay": { "layout": "story", "phase": "法国答案", "accent": "good", "title": "可怕的不是一把刀\n是替补席还有一排", "kicker": "杜埃锁定小组第一", "stamp": "4-1" }
+    },
+    {
+      "id": "ending",
+      "text": "赛前等的是姆巴佩对哈兰德,赛后留下的却是法国的厚度。挪威藏起哈兰德,法国亮出整套武器库。淘汰赛对手真正头疼的问题是,你到底要防他们哪一个?",
+      "footage": { "start": 1045.0, "speed": 0.85, "blur": [[0,0,520,76],[840,0,240,76]] },
+      "overlay": { "layout": "end", "title": "不止姆巴佩", "subtitle": "法国的深度,才是底牌" }
+    }
+  ]
+}

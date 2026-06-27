@@ -1,0 +1,78 @@
+{
+  "total": 157.296,
+  "pad": 0.16,
+  "segs": [
+    {
+      "seg": 1,
+      "id": "lineup-reversal",
+      "audio": 19.872,
+      "clip": 20.032,
+      "start": 0.0,
+      "end": 20.032
+    },
+    {
+      "seg": 2,
+      "id": "mbappe-bar",
+      "audio": 8.544,
+      "clip": 8.704,
+      "start": 20.032,
+      "end": 28.736
+    },
+    {
+      "seg": 3,
+      "id": "dembele-first",
+      "audio": 21.792,
+      "clip": 21.952,
+      "start": 28.736,
+      "end": 50.688
+    },
+    {
+      "seg": 4,
+      "id": "norway-miss",
+      "audio": 10.176,
+      "clip": 10.336,
+      "start": 50.688,
+      "end": 61.024
+    },
+    {
+      "seg": 5,
+      "id": "dembele-second",
+      "audio": 22.08,
+      "clip": 22.24,
+      "start": 61.024,
+      "end": 83.264
+    },
+    {
+      "seg": 6,
+      "id": "sorloth-answer",
+      "audio": 15.024,
+      "clip": 15.184,
+      "start": 83.264,
+      "end": 98.448
+    },
+    {
+      "seg": 7,
+      "id": "dembele-hat",
+      "audio": 18.072,
+      "clip": 18.232,
+      "start": 98.448,
+      "end": 116.68
+    },
+    {
+      "seg": 8,
+      "id": "penalty-save",
+      "audio": 19.848,
+      "clip": 20.008,
+      "start": 116.68,
+      "end": 136.688
+    },
+    {
+      "seg": 9,
+      "id": "doue-final",
+      "audio": 20.448,
+      "clip": 20.608,
+      "start": 136.688,
+      "end": 157.296
+    }
+  ]
+}
