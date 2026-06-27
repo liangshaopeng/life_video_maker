@@ -21,3 +21,21 @@ Verification:
 - `python3 -m pytest tests/test_wukong_sample_scripts.py tests/test_wukong_sample_project.py -v` -> `17 passed`
 - `python3 神话短剧/孙悟空大战二郎神-样片/scripts/check_assets.py 神话短剧/孙悟空大战二郎神-样片/project.json` -> `OK: assets ready`
 - Direct scan of regenerated final `.srt` files -> no caption line exceeded `14` visible characters
+
+## Cleanup Findings
+
+Task-4 cleanup removed generated `segN_raw.srt` artifacts and broadened subtitle line-length coverage.
+
+Changes:
+- `神话短剧/孙悟空大战二郎神-样片/scripts/make_narration.py`: remove `segN_raw.srt` after writing wrapped `segN.srt`.
+- `tests/test_wukong_sample_scripts.py`: subtitle line-length test now scans all `build/subs/*.srt` files.
+
+Checks:
+- `cd 神话短剧/孙悟空大战二郎神-样片 && python3 scripts/make_narration.py project.json`
+  - result: regenerated with wrapped captions and timeline (`总时长(含pad): 30.00s`)
+- `python3 -m pytest tests/test_wukong_sample_scripts.py tests/test_wukong_sample_project.py -v`
+  - result: `17 passed`
+- `python3 神话短剧/孙悟空大战二郎神-样片/scripts/check_assets.py 神话短剧/孙悟空大战二郎神-样片/project.json`
+  - result: `OK: assets ready`
+- `find 神话短剧/孙悟空大战二郎神-样片/build/subs -name '*_raw.srt' -print`
+  - result: no matches

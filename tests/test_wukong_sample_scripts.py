@@ -95,8 +95,6 @@ def test_generated_subtitles_respect_caption_width():
     project = json.loads(PROJECT_JSON.read_text(encoding="utf-8"))
     maxlen = int(project["caption_maxlen"])
     for srt in sorted((PROJECT_DIR / "build" / "subs").glob("*.srt")):
-        if srt.name.endswith("_raw.srt"):
-            continue
         for line in srt.read_text(encoding="utf-8").splitlines():
             text = line.strip()
             if not text or text.isdigit() or "-->" in text:

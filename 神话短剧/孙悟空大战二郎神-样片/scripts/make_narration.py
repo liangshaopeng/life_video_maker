@@ -264,6 +264,8 @@ for i, seg in enumerate(segments, 1):
     fine = fine_cues(parse_srt(raw))
     fine = [(st, min(en, d), to_display(t)) for st, en, t in fine]
     write_srt(vtt, fine)
+    if os.path.exists(raw):
+        os.remove(raw)
     for st, en, t in fine:
         gcues.append((cum + st, min(cum + en, cum + d), t))
     timeline.append({
