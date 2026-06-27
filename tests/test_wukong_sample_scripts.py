@@ -134,3 +134,18 @@ def test_bgm_exists_and_is_long_enough():
     bgm = PROJECT_DIR / "assets" / "bgm" / "dark_myth_bgm.wav"
     assert bgm.exists()
     assert ffprobe_duration(bgm) >= 31.0
+
+
+def test_overlay_frames_exist_after_render():
+    project = json.loads(PROJECT_JSON.read_text(encoding="utf-8"))
+    timeline = json.loads((PROJECT_DIR / "build" / "timeline.json").read_text(encoding="utf-8"))
+    for item in timeline["segs"]:
+        seg_dir = PROJECT_DIR / "build" / "overlays" / f"seg{item['seg']}"
+        first = seg_dir / "0001.png"
+        last_index = max(1, int(round(item["clip"] * project["canvas"]["fps"])))
+        last = seg_dir / f"{last_index:04d}.png"
+        assert first.exists()
+        assert last.exists()
+        with Image.open(first) as img:
+            assert img.size == (1080, 1920)
+            assert img.mode == "RGBA"
