@@ -94,8 +94,6 @@ def render_segment(shot: dict, item: dict):
     title_font = font(72)
     caption_font = font(60)
     small_font = font(32)
-    hook_font = font(86)
-
     for n in range(1, frames + 1):
         t = (n - 1) / FPS
         im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
@@ -131,16 +129,6 @@ def render_segment(shot: dict, item: dict):
                 caption_font,
                 fill=(255, 255, 244, 255),
                 stroke_width=5,
-            )
-
-        if shot["id"] == "shot06_afterimage_hook":
-            draw_centered(
-                draw,
-                (W / 2, 1336),
-                "未完待续",
-                hook_font,
-                fill=(255, 214, 116, 255),
-                stroke_width=6,
             )
 
         im.save(out_dir / f"{n:04d}.png")

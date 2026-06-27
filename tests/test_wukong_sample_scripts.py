@@ -194,12 +194,64 @@ def test_overlay_frames_exist_after_render():
             assert img.mode == "RGBA"
 
 
+def test_shot06_overlay_does_not_draw_duplicate_hook(tmp_path):
+    module = load_module(
+        PROJECT_DIR / "scripts" / "render_overlays.py",
+        "wukong_render_overlays_hook",
+        argv=["render_overlays.py", str(PROJECT_JSON)],
+    )
+    module.BUILD = tmp_path
+    subs_dir = tmp_path / "subs"
+    subs_dir.mkdir(parents=True)
+    (subs_dir / "seg6.srt").write_text(
+        "\n".join(
+            [
+                "1",
+                "00:00:00,100 --> 00:00:01,956",
+                "这一战，才刚刚开始。",
+                "",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    shot = {
+        "id": "shot06_afterimage_hook",
+        "caption": "未完待续",
+    }
+    item = {
+        "seg": 6,
+        "clip": 2.0,
+    }
+
+    module.render_segment(shot, item)
+
+    overlay = tmp_path / "overlays" / "seg6" / "0001.png"
+    with Image.open(overlay) as img:
+        hook_band = img.crop((160, 1200, 920, 1480))
+        assert hook_band.getchannel("A").getbbox() is None
+
+
 def ffprobe_stream(path: Path) -> dict:
     raw = subprocess.check_output([
         "ffprobe", "-v", "error", "-select_streams", "v:0",
         "-show_entries", "stream=width,height,r_frame_rate",
         "-show_entries", "format=duration",
         "-of", "json", str(path)
+    ]).decode()
+    return json.loads(raw)
+
+
+def ffprobe_media(path: Path) -> dict:
+    raw = subprocess.check_output([
+        "ffprobe",
+        "-v",
+        "error",
+        "-show_streams",
+        "-show_format",
+        "-of",
+        "json",
+        str(path),
     ]).decode()
     return json.loads(raw)
 
@@ -214,6 +266,24 @@ def test_final_exports_match_contract():
         assert stream["width"] == 1080
         assert stream["height"] == 1920
         assert 28.0 <= duration <= 32.5
+
+
+def test_final_exports_include_audio_streams():
+    for name in ["wukong_erlang_sample_vertical.mp4", "wukong_erlang_sample_final.mp4"]:
+        path = PROJECT_DIR / name
+        info = ffprobe_media(path)
+        audio_streams = [stream for stream in info["streams"] if stream["codec_type"] == "audio"]
+        assert audio_streams, f"{name} is missing audio stream"
+        assert float(audio_streams[0]["duration"]) > 0.0
+
+
+def test_final_mix_audio_stream_uses_aac_and_has_duration():
+    info = ffprobe_media(PROJECT_DIR / "wukong_erlang_sample_final.mp4")
+    audio_streams = [stream for stream in info["streams"] if stream["codec_type"] == "audio"]
+    assert audio_streams, "final mix is missing audio stream"
+    audio_stream = audio_streams[0]
+    assert audio_stream["codec_name"] == "aac"
+    assert float(audio_stream["duration"]) > 0.0
 
 
 def test_qa_thumbnails_exist():
