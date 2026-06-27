@@ -732,7 +732,8 @@ Expected: 2 tests PASS.
 - [ ] **Step 8: Commit**
 
 ```bash
-git add tests/test_wukong_sample_scripts.py 神话短剧/孙悟空大战二郎神-样片/scripts/check_assets.py 神话短剧/孙悟空大战二郎神-样片/assets/keyframes
+git add tests/test_wukong_sample_scripts.py 神话短剧/孙悟空大战二郎神-样片/scripts/check_assets.py
+git add -f 神话短剧/孙悟空大战二郎神-样片/assets/keyframes
 git commit -m "feat: add wukong erlang generated keyframes"
 ```
 
@@ -896,7 +897,8 @@ Expected: tests PASS and asset checker prints `OK: assets ready`.
 - [ ] **Step 7: Commit**
 
 ```bash
-git add tests/test_wukong_sample_scripts.py 神话短剧/孙悟空大战二郎神-样片/scripts/make_narration.py 神话短剧/孙悟空大战二郎神-样片/scripts/make_dark_bgm.py 神话短剧/孙悟空大战二郎神-样片/build/audio 神话短剧/孙悟空大战二郎神-样片/build/subs 神话短剧/孙悟空大战二郎神-样片/build/timeline.json 神话短剧/孙悟空大战二郎神-样片/assets/bgm/dark_myth_bgm.wav
+git add tests/test_wukong_sample_scripts.py 神话短剧/孙悟空大战二郎神-样片/scripts/make_narration.py 神话短剧/孙悟空大战二郎神-样片/scripts/make_dark_bgm.py
+git add -f 神话短剧/孙悟空大战二郎神-样片/build/audio 神话短剧/孙悟空大战二郎神-样片/build/subs 神话短剧/孙悟空大战二郎神-样片/build/timeline.json 神话短剧/孙悟空大战二郎神-样片/assets/bgm/dark_myth_bgm.wav
 git commit -m "feat: add wukong erlang narration and bgm"
 ```
 
@@ -1072,7 +1074,8 @@ Expected: PASS.
 - [ ] **Step 6: Commit**
 
 ```bash
-git add tests/test_wukong_sample_scripts.py 神话短剧/孙悟空大战二郎神-样片/scripts/render_overlays.py 神话短剧/孙悟空大战二郎神-样片/build/overlays
+git add tests/test_wukong_sample_scripts.py 神话短剧/孙悟空大战二郎神-样片/scripts/render_overlays.py
+git add -f 神话短剧/孙悟空大战二郎神-样片/build/overlays
 git commit -m "feat: render wukong erlang subtitle overlays"
 ```
 
@@ -1314,7 +1317,8 @@ Pass criteria:
 - [ ] **Step 8: Commit**
 
 ```bash
-git add tests/test_wukong_sample_scripts.py 神话短剧/孙悟空大战二郎神-样片/scripts/assemble_sample.py 神话短剧/孙悟空大战二郎神-样片/scripts/mix_bgm.sh 神话短剧/孙悟空大战二郎神-样片/build/clips 神话短剧/孙悟空大战二郎神-样片/build/qa 神话短剧/孙悟空大战二郎神-样片/build/concat.txt 神话短剧/孙悟空大战二郎神-样片/wukong_erlang_sample_vertical.mp4 神话短剧/孙悟空大战二郎神-样片/wukong_erlang_sample_final.mp4
+git add tests/test_wukong_sample_scripts.py 神话短剧/孙悟空大战二郎神-样片/scripts/assemble_sample.py 神话短剧/孙悟空大战二郎神-样片/scripts/mix_bgm.sh
+git add -f 神话短剧/孙悟空大战二郎神-样片/build/clips 神话短剧/孙悟空大战二郎神-样片/build/qa 神话短剧/孙悟空大战二郎神-样片/build/concat.txt 神话短剧/孙悟空大战二郎神-样片/wukong_erlang_sample_vertical.mp4 神话短剧/孙悟空大战二郎神-样片/wukong_erlang_sample_final.mp4
 git commit -m "feat: assemble wukong erlang dark myth sample"
 ```
 
