@@ -1,5 +1,6 @@
 import importlib.util
 import json
+import subprocess
 from pathlib import Path
 
 from PIL import Image
@@ -73,3 +74,36 @@ def test_check_keyframes_rejects_non_png_with_png_suffix(tmp_path):
         shot_id in err and "not PNG" in err
         for err in errors
     )
+
+
+def ffprobe_duration(path: Path) -> float:
+    return float(
+        subprocess.check_output([
+            "ffprobe",
+            "-v",
+            "error",
+            "-show_entries",
+            "format=duration",
+            "-of",
+            "default=nk=1:nw=1",
+            str(path),
+        ]).decode().strip()
+    )
+
+
+def test_narration_outputs_exist_after_generation():
+    project = json.loads(PROJECT_JSON.read_text(encoding="utf-8"))
+    for index, shot in enumerate(project["shots"], 1):
+        audio = PROJECT_DIR / "build" / "audio" / f"seg{index}.mp3"
+        srt = PROJECT_DIR / "build" / "subs" / f"seg{index}.srt"
+        assert audio.exists(), f"missing audio for {shot['id']}"
+        assert srt.exists(), f"missing srt for {shot['id']}"
+        assert ffprobe_duration(audio) > 0.5
+    assert (PROJECT_DIR / "build" / "subs" / "global.srt").exists()
+    assert (PROJECT_DIR / "build" / "timeline.json").exists()
+
+
+def test_bgm_exists_and_is_long_enough():
+    bgm = PROJECT_DIR / "assets" / "bgm" / "dark_myth_bgm.wav"
+    assert bgm.exists()
+    assert ffprobe_duration(bgm) >= 31.0
