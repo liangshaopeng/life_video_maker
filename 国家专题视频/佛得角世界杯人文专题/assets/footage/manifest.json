@@ -1,0 +1,74 @@
+{
+  "assets": [
+    {
+      "id": "stadium-lights",
+      "role": "cold open stadium texture",
+      "sourceUrl": "generated-ffmpeg-lavfi",
+      "rawFile": "",
+      "clipFile": "clips/stadium-lights.mp4",
+      "start": 0,
+      "duration": 8,
+      "note": "Generated dark Atlantic stadium texture for the cold open."
+    },
+    {
+      "id": "atlantic-drone",
+      "role": "country geography aerial",
+      "sourceUrl": "https://www.youtube.com/watch?v=n518CDsVG4w",
+      "rawFile": "raw/cape-verde-travel.mp4",
+      "clipFile": "clips/atlantic-drone.mp4",
+      "start": 30,
+      "duration": 18,
+      "note": "Use clean island coastline or aerial shot."
+    },
+    {
+      "id": "fogo-volcano",
+      "role": "volcanic island identity",
+      "sourceUrl": "generated-ffmpeg-lavfi",
+      "rawFile": "",
+      "clipFile": "clips/fogo-volcano.mp4",
+      "start": 40,
+      "duration": 15,
+      "note": "Generated volcanic texture after YouTube segment returned HTTP 403."
+    },
+    {
+      "id": "morna-performance",
+      "role": "culture and music",
+      "sourceUrl": "generated-ffmpeg-lavfi",
+      "rawFile": "",
+      "clipFile": "clips/morna-performance.mp4",
+      "start": 12,
+      "duration": 18,
+      "note": "Generated warm cultural texture after the initial UNESCO YouTube URL was unavailable."
+    },
+    {
+      "id": "sal-tourism",
+      "role": "tourism economy",
+      "sourceUrl": "https://www.youtube.com/watch?v=4wjlZ_RKHk8",
+      "rawFile": "raw/dw-cape-verde.mp4",
+      "clipFile": "clips/sal-tourism.mp4",
+      "start": 80,
+      "duration": 18,
+      "note": "Use tourism or beach economy visuals."
+    },
+    {
+      "id": "blue-sharks-team",
+      "role": "football national team",
+      "sourceUrl": "https://www.youtube.com/watch?v=JreiAoc6HFk",
+      "rawFile": "raw/cape-verde-underdog.mp4",
+      "clipFile": "clips/blue-sharks-team.mp4",
+      "start": 20,
+      "duration": 20,
+      "note": "Use transformed short excerpt; avoid long match broadcast."
+    },
+    {
+      "id": "fans-celebration",
+      "role": "fan emotion",
+      "sourceUrl": "https://www.youtube.com/watch?v=GpjhEESO1gI",
+      "rawFile": "raw/fans-celebration.mp4",
+      "clipFile": "clips/fans-celebration.mp4",
+      "start": 5,
+      "duration": 15,
+      "note": "Use celebration shot if downloadable and clean."
+    }
+  ]
+}
