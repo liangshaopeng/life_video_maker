@@ -1,64 +1,84 @@
 export const storyboard = [
   {
-    id: "cold-open",
+    id: "hook",
     title: "佛的脚下凡",
     start: 0,
     duration: 30,
-    assetIds: ["stadium-lights", "cape-verde-flag"],
-    keywords: ["佛的脚", "挑战阿根廷", "世界杯淘汰赛"],
+    assetIds: ["hook-main"],
+    keywords: ["挑战阿根廷", "三连平出线", "小国生存法"],
     narration:
-      "佛的脚，真的来人间比赛了。不是段子。这个大西洋上的群岛国家，第一次站上世界杯淘汰赛。而它下一场要挑战的，是世界冠军阿根廷。"
+      "佛的脚，真的来人间踢世界杯了。佛得角小组出线，淘汰赛第一关直接踩到世界冠军阿根廷面前。三连平不是苟，是把每一分都抠成命。"
   },
   {
     id: "geography",
-    title: "不是一个角，是一片群岛",
+    title: "不是一个角，是海上的路",
     start: 30,
-    duration: 51,
-    assetIds: ["atlantic-drone", "fogo-volcano"],
-    keywords: ["大西洋", "十座主岛", "普拉亚"],
+    duration: 26,
+    assetIds: ["geography-main"],
+    keywords: ["十座主岛", "大西洋节点", "火山港口"],
     narration:
-      "但如果你只把它当成一个冷门比分，那就太小看这个故事了。佛得角不是突然被世界杯照亮。它本来就是非洲西岸外的大西洋群岛。一串被海风、火山、港口和迁徙连起来的岛。中文叫佛得角，听起来像一个梗。可在世界地图上，它更像大西洋的一座中转站。从非洲西岸往外看，你会看到十座主岛散在海上。首都普拉亚在圣地亚哥岛。圣维森特有明德卢，有港口，也有音乐。福戈有火山。萨尔和博阿维斯塔，有游客熟悉的海滩和风。所以佛得角不是一个角。它是一片群岛。也是一条海上的路。"
+      "佛得角在塞内加尔外海，是被火山、港口、海风和迁徙拴在一起的群岛。它不是一个角，它是一条海上的路。"
   },
   {
     id: "culture",
-    title: "海风里的文化",
-    start: 81,
-    duration: 60,
-    assetIds: ["morna-performance"],
-    keywords: ["葡语世界", "Kriolu", "Morna", "Morabeza"],
+    title: "温柔，但骨头很硬",
+    start: 56,
+    duration: 28,
+    assetIds: ["culture-main"],
+    keywords: ["Kriolu", "Morna", "UNESCO 非遗"],
     narration:
-      "这里的文化，也不像一条直线。官方语言是葡萄牙语，日常生活里还有克里奥尔语。非洲的节奏，葡萄牙的记忆，大西洋移民的乡愁，都混在一起。如果要找一个声音代表佛得角，那就是 Morna。它不是单纯的背景音乐。它像海风吹过港口之后，留下来的叹息。温柔、漂泊，也骄傲。你能在这类音乐里听到离开，也能听到回家。"
+      "岛和岛隔着海，人和人靠离开再回来。葡萄牙语、Kriolu、非洲节奏和大西洋漂泊感混在一起。Morna 温柔，但骨头很硬。"
   },
   {
     id: "development",
-    title: "美丽和现实",
+    title: "海滩背后的现实",
+    start: 84,
+    duration: 27,
+    assetIds: ["development-main"],
+    keywords: ["旅游", "淡水压力", "侨汇血管"],
+    narration:
+      "海滩很美，但现实不梦幻。耕地有限、淡水紧张、进口依赖明显。侨汇像第二条血管，出海本来就是国家运行方式的一部分。"
+  },
+  {
+    id: "football-network",
+    title: "人口小，但网络大",
+    start: 111,
+    duration: 30,
+    assetIds: ["football-network-main"],
+    keywords: ["旅欧球员", "侨民网络", "LinkedIn 招募"],
+    narration:
+      "蓝鲨队真正厉害的不是突然冒出一代天才，而是把欧洲联赛、移民家庭和岛上街球里的球员重新拉回同一件球衣。"
+  },
+  {
+    id: "football-system",
+    title: "不是童话，是系统",
     start: 141,
-    duration: 51,
-    assetIds: ["sal-tourism"],
-    keywords: ["旅游", "侨汇", "水资源", "服务业"],
+    duration: 27,
+    assetIds: ["football-system-main"],
+    keywords: ["身份认同", "容错率", "小组第二"],
     narration:
-      "但岛屿的浪漫背后，也有现实。佛得角不靠大片耕地吃饭，也没有丰富矿产。旅游是经济支柱之一，侨汇也把世界各地的佛得角人，重新连回这些岛。海滩、机场、酒店和港口，是发展的一面。干旱、水资源压力、进口依赖和气候风险，是另一面。这个国家不是躺在海边等风来。它一直在有限的条件里，寻找自己的出路。"
+      "这支队不是童话，它更像一套系统。三场平局为什么值钱？因为杯赛奖励犯错少、崩盘少、最后十分钟还能咬住比分的球队。"
   },
   {
-    id: "football-rise",
-    title: "蓝鲨队为什么能游到这里",
-    start: 192,
-    duration: 81,
-    assetIds: ["blue-sharks-team", "fans-celebration"],
-    keywords: ["蓝鲨队", "旅欧球员", "三场平局", "国家认同"],
+    id: "argentina-pressure",
+    title: "压力来到冠军这边",
+    start: 168,
+    duration: 28,
+    assetIds: ["argentina-main"],
+    keywords: ["阿根廷", "卫冕冠军", "淘汰赛心理"],
     narration:
-      "所以足球在这里，不只是运动。它是一种连接。人口不大，但网络很大。有人从岛上出发，去欧洲踢球。也有人在葡萄牙、荷兰、法国、爱尔兰成长，然后把血缘和身份穿回国家队球衣上。蓝鲨队这个名字，听起来很凶。可它真正厉害的地方，是把分散在世界各地的人，拧成同一个方向。这届世界杯，佛得角没有用大比分碾压谁。他们是三场平局，小组第二出线。听起来不够传奇？恰恰相反。对一个第一次站上世界杯淘汰赛的小国来说，每一分都像在海浪里抢下来的。他们不是靠运气突然冒出来。非洲杯的经验，旅欧球员的成熟，国家队体系的积累，还有球迷对这件球衣的投入，最后都汇到了这一刻。"
+      "下一关是阿根廷。佛得角当然不是热门，也不用硬编必胜童话。真正刺激的是，压力已经不在小国这一边了。"
   },
   {
-    id: "argentina-challenge",
-    title: "挑战世界冠军",
-    start: 273,
-    duration: 44,
-    assetIds: ["fans-celebration", "cape-verde-flag"],
-    keywords: ["阿根廷", "世界冠军", "地图上的小国"],
+    id: "close",
+    title: "小，但不能散",
+    start: 196,
+    duration: 29,
+    assetIds: ["close-main"],
+    keywords: ["小国足球", "世界视线", "犀利反击"],
     narration:
-      "现在，佛得角站到了阿根廷面前。对面是世界冠军，是梅西的阿根廷，是所有小球队都会仰头看的名字。佛得角当然不是热门。也没有必要把它说成童话里一定会赢的主角。真正震撼的地方，是他们已经走到了这里。从大西洋群岛，到世界杯淘汰赛。从地图上很小的名字，到全世界都要念出来的对手。佛的脚，不一定能踢翻世界冠军。但它已经告诉世界：地图上最小的名字，也能走到最大的球场中央。"
+      "看点不只是能不能爆冷，而是一个地图上很小的国家，怎么把地理、侨民、文化和足球拧成一股力量。你可以小，但不能散。"
   }
 ];
 
-export const targetDuration = 317;
+export const targetDuration = 225;

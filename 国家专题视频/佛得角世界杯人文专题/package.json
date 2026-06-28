@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "captions": "node scripts/generate-captions.mjs",
     "verify:data": "node scripts/verify-story-data.mjs",
     "check:assets": "node scripts/check-assets.mjs",
     "lint": "npx hyperframes lint",

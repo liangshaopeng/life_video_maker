@@ -1,39 +1,31 @@
-# Atlantic Epic Sports Dossier
+# Atlantic Sports Fast-Cut
 
 ## Style Prompt
 
-Build a cinematic horizontal sports-humanities documentary about Cabo Verde. The surface should feel like a dark Atlantic match dossier: ocean depth, volcanic texture, Cabo Verde flag accents, stadium light, warm documentary inserts, and crisp data panels. The opening can hit hard with oversized kinetic Chinese type, then the middle should breathe with maps, archival-style cards, travel footage, and restrained motion.
+Build a horizontal sports-feature video about Cabo Verde that moves like a sharp football commentary segment, not a slow travel documentary. The visual bed should be real full-screen footage, preassembled into crisp cuts, with restrained overlay packaging: headline, punchline, small data chips, and synced subtitles. Keep the first hook playful with "佛的脚下凡", then quickly turn into hard context and opinion.
 
-## Colors
+## Visual Rules
 
-- Atlantic navy: `#061B2E`
-- Deep ocean: `#0B3558`
-- Volcanic black: `#111217`
-- Cabo Verde blue: `#1A4FB3`
-- Flag red: `#D71920`
-- Flag yellow: `#F7D117`
-- Warm white: `#F6F2E8`
-- Data gold: `#E7B84A`
+- Use the footage as the primary image, never as a blurred wallpaper.
+- Keep overlays left-weighted and compact so the main video remains inspectable.
+- Use flag red/yellow/blue accents against a dark readability scrim.
+- Keep captions short and fast: one thought per subtitle, no long paragraph blocks.
+- Prefer hard cuts and flag-color wipes over slow documentary fades.
 
-## Typography
+## Content Pillars
 
-- Chinese: `Noto Sans SC`, `Source Han Sans SC`, `Hiragino Sans GB`, sans-serif.
-- Latin and numbers: `Inter`, `Arial`, sans-serif.
-- Use heavy display weight only for cold-open impact words and chapter cards.
+- Hook: "佛的脚" is the meme, but the real story is small-country tournament survival.
+- Geography: not one "corner", but a group of Atlantic islands and routes.
+- Culture: Kriolu, Morna, and the emotional logic of leaving and returning.
+- Development: tourism beauty versus water, imports, and external-market risk.
+- Football: population is small, but the diaspora network is large.
+- World Cup: three draws are not boring; they are risk control.
+- Argentina: the favorite carries the pressure.
 
-## Motion
+## What Not To Do
 
-- Opening: smash cuts, fast map zoom, flag color wipes, title scale hits.
-- Geography: island route lines draw across the Atlantic map.
-- Culture: slow parallax, warm lower-thirds, softer dissolves.
-- Development: dashboard cards slide and count in cleanly.
-- Football: bracket lines, player cards, route maps, and blue shark trace.
-- Transitions: ocean-wave wipes, pitch-line reveals, and flag-color slashes.
-
-## What NOT To Do
-
-- Do not use purple tech gradients, decorative orbs, or bokeh blobs.
-- Do not make the Blue Sharks motif a cartoon mascot.
-- Do not put long paragraphs on screen.
-- Do not keep the entire piece in meme mode after the first 30 seconds.
-- Do not use long unmodified match broadcasts as the visual backbone.
+- Do not use generated texture placeholders when real footage exists.
+- Do not darken the entire picture so much that the footage becomes mush.
+- Do not stretch a point into a lecture; move quickly.
+- Do not make the piece a generic country intro after the hook.
+- Do not use long unmodified match broadcasts as the backbone.

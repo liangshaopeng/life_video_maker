@@ -19,8 +19,8 @@ audio_streams="$(ffprobe -v error -select_streams a -show_entries stream=index -
 size_bytes="$(wc -c < "$video" | tr -d ' ')"
 
 awk -v duration="$duration" 'BEGIN {
-  if (duration < 300 || duration > 480) {
-    printf "duration %.2fs is outside 5-8 minute target\n", duration > "/dev/stderr";
+  if (duration < 180 || duration > 300) {
+    printf "duration %.2fs is outside under-five-minute target\n", duration > "/dev/stderr";
     exit 1;
   }
 }'

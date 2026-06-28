@@ -5,8 +5,8 @@ import { storyboard, targetDuration } from "../data/storyboard.js";
 const errors = [];
 const sourceIds = new Set(sources.map((source) => source.id));
 
-if (targetDuration < 300 || targetDuration > 480) {
-  errors.push(`targetDuration must be between 300 and 480 seconds, got ${targetDuration}`);
+if (targetDuration < 180 || targetDuration > 300) {
+  errors.push(`targetDuration must be between 180 and 300 seconds, got ${targetDuration}`);
 }
 
 for (let i = 0; i < storyboard.length; i += 1) {
@@ -35,6 +35,9 @@ for (const caption of captions) {
   }
   if (!caption.text || caption.text.length > 28) {
     errors.push(`caption text must be 1-28 chars: ${JSON.stringify(caption)}`);
+  }
+  if (caption.end > targetDuration + 0.5) {
+    errors.push(`caption exceeds target duration: ${JSON.stringify(caption)}`);
   }
 }
 

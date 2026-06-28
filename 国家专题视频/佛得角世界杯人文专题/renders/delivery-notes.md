@@ -1,18 +1,20 @@
-# 佛得角世界杯人文专题交付说明
+# 佛得角世界杯快评专题交付说明
 
 ## Final Render
 
 - File: `renders/cape-verde-final.mp4`
 - Format: horizontal 16:9, 1920x1080, 30fps
-- Duration: 317.03 seconds
-- Audio: Chinese male narration + locally generated documentary BGM
-- Size: 210,310,954 bytes
+- Duration: 225.02 seconds
+- Audio: faster Chinese male narration + locally generated BGM
+- Size: 349,057,006 bytes
 
-## Story Shape
+## Revision Focus
 
-- Cold open: "佛的脚下凡，挑战世界冠军"
-- Scope: geography, culture, development reality, football diaspora, Blue Sharks' World Cup breakthrough, Argentina challenge
-- Narration pace: medium, fluent Chinese voiceover
+- Recut from a slower 5+ minute documentary tone into a 3:45 sports-feature commentary.
+- Rewrote narration with sharper claims: small country survival logic, diaspora player network, three-draw tournament math, Argentina pressure transfer.
+- Rebuilt visuals as clear primary video cuts: 8 scene clips are preassembled into `assets/footage/clips/main-cut.mp4`, then overlaid with title/data/caption layers.
+- Replaced generated fallback textures with real higher-resolution footage where possible, including live Morna performance and 1080p football/fan clips.
+- Generated captions from Edge TTS VTT timing, capped at 22 characters for faster narration.
 
 ## Footage Sources
 
@@ -22,9 +24,9 @@ See `assets/footage/manifest.json` for clip-level source URLs and notes.
 - YouTube DW Cabo Verde tourism/economy footage: `https://www.youtube.com/watch?v=4wjlZ_RKHk8`
 - YouTube football underdog footage: `https://www.youtube.com/watch?v=JreiAoc6HFk`
 - YouTube fan celebration footage: `https://www.youtube.com/watch?v=GpjhEESO1gI`
-- Generated fallback visuals: stadium texture, Fogo volcano texture, Morna culture texture
+- YouTube Morna live performance footage: `https://www.youtube.com/watch?v=R_o9oekNf7c`
 
-Before publishing publicly, review usage rights for the YouTube-derived footage against the target platform policy.
+Before publishing publicly, review usage rights for YouTube-derived footage against the target platform policy.
 
 ## Fact Sources
 
@@ -42,6 +44,8 @@ Before publishing publicly, review usage rights for the YouTube-derived footage 
   `https://www.visit-caboverde.com/en/islands`
 - World Factbook: country profile
   `https://theworldfactbook.org/country/cabo-verde.html`
+- Euronews: Pico Lopes and LinkedIn recruitment context
+  `https://www.euronews.com/2026/06/16/who-is-pico-lopes-the-unlikely-cape-verde-world-cup-hero-recruited-through-linkedin`
 
 ## Verification
 
@@ -57,8 +61,9 @@ npm run verify:render
 
 Latest verification:
 
-- Data: 6 scenes, 70 captions, 10 sources
-- Assets: 7 footage assets
+- Data: 8 scenes, 92 captions, 10 sources
+- Assets: 9 footage assets
 - HyperFrames lint: 0 errors, 0 warnings
 - HyperFrames inspect: 0 layout issues across 15 samples
-- Render: 317.03s, 1920x1080, 1 audio stream
+- Render: 225.02s, 1920x1080, 1 audio stream
+- Visual QA: contact sheet and full-resolution samples generated in `renders/`

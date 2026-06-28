@@ -98,6 +98,11 @@ export const claims = [
     sourceIds: ["aljazeera-cpv-argentina", "olympics-cpv-round32"]
   },
   {
+    id: "small-island-country",
+    text: "佛得角是位于非洲西岸外的大西洋群岛国家，人口不到六十万。",
+    sourceIds: ["factbook-cabo-verde", "visit-caboverde-islands"]
+  },
+  {
     id: "morna-unesco",
     text: "Morna 是佛得角标志性音乐实践，并被列入联合国教科文组织非遗名录。",
     sourceIds: ["unesco-morna"]
@@ -106,5 +111,10 @@ export const claims = [
     id: "tourism-economy",
     text: "旅游是佛得角经济的重要支柱，国家也面临耕地有限和资源有限的现实。",
     sourceIds: ["worldbank-cabo-verde", "factbook-cabo-verde"]
+  },
+  {
+    id: "diaspora-football-network",
+    text: "佛得角足球叙事中，侨民网络和旅欧球员是重要背景；Pico Lopes 的国家队故事也被报道与 LinkedIn 招募有关。",
+    sourceIds: ["euronews-pico-lopes", "cntraveler-soccer-roots"]
   }
 ];
