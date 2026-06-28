@@ -165,6 +165,9 @@
 <body>
   <div id="cape-verde-main" data-composition-id="cape-verde-main" data-width="1920" data-height="1080" data-start="0" data-duration="317" data-track-index="100">
     <video class="background-video" id="bg-cold" data-start="0" data-duration="30" data-track-index="0" src="assets/footage/clips/stadium-lights.mp4" muted playsinline></video>
+    <video class="background-video" id="bg-geography" data-start="30" data-duration="51" data-track-index="0" src="assets/footage/clips/atlantic-drone.mp4" muted playsinline></video>
+    <video class="background-video" id="bg-culture" data-start="81" data-duration="60" data-track-index="0" src="assets/footage/clips/morna-performance.mp4" muted playsinline></video>
+    <video class="background-video" id="bg-development" data-start="141" data-duration="51" data-track-index="0" src="assets/footage/clips/sal-tourism.mp4" muted playsinline></video>
 
     <audio id="narration" data-start="0" data-duration="317" data-track-index="30" src="assets/audio/narration.wav" data-volume="1"></audio>
     <audio id="bgm" data-start="0" data-duration="317" data-track-index="31" src="assets/audio/bgm.mp3" data-volume="0.16"></audio>
@@ -176,6 +179,45 @@
         <span class="chip">佛得角 Cabo Verde</span>
         <span class="chip">蓝鲨队</span>
         <span class="chip">下一站：阿根廷</span>
+      </div>
+    </section>
+
+    <section class="clip scene" id="scene-geography" data-start="30" data-duration="51" data-track-index="11">
+      <div class="kicker">不是一个角，是一片群岛</div>
+      <h2 class="headline">大西洋上的十座主岛</h2>
+      <div class="map-board">
+        <div class="body">非洲西岸外，海风、火山、港口和迁徙连起来的国家。</div>
+        <div class="chips">
+          <span class="chip">首都：普拉亚</span>
+          <span class="chip">圣维森特 · 明德卢</span>
+          <span class="chip">福戈火山</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="clip scene" id="scene-culture" data-start="81" data-duration="60" data-track-index="12">
+      <div class="kicker">海风里的文化</div>
+      <h2 class="headline">Morna 像群岛的心跳</h2>
+      <div class="map-board">
+        <div class="body">葡语、Kriolu、非洲节奏、葡萄牙记忆和大西洋移民乡愁，混在同一条街上。</div>
+        <div class="chips">
+          <span class="chip">Kriolu</span>
+          <span class="chip">Morabeza</span>
+          <span class="chip">UNESCO 非遗</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="clip scene" id="scene-development" data-start="141" data-duration="51" data-track-index="13">
+      <div class="kicker">美丽和现实</div>
+      <h2 class="headline">不是躺在海边等风来</h2>
+      <div class="data-board">
+        <div class="chips">
+          <span class="chip">旅游经济</span>
+          <span class="chip">侨汇连接</span>
+          <span class="chip">耕地有限</span>
+          <span class="chip">水资源压力</span>
+        </div>
       </div>
     </section>
 
@@ -196,6 +238,27 @@
     tl.from("#scene-cold .kicker", { opacity: 0, x: -60, duration: 0.5, ease: "expo.out" }, 0.45);
     tl.from("#scene-cold .headline", { opacity: 0, scale: 0.92, duration: 0.65, ease: "back.out(1.4)" }, 0.65);
     tl.from("#scene-cold .chip", { opacity: 0, y: 30, stagger: 0.12, duration: 0.45, ease: "power2.out" }, 1.1);
+
+    const sceneStarts = [30, 81, 141];
+    for (const start of sceneStarts) {
+      tl.to("#transition-bar", { x: "205%", duration: 0.48, ease: "power3.inOut" }, start - 0.28);
+      tl.set("#transition-bar", { x: "-105%" }, start + 0.32);
+    }
+
+    tl.from("#scene-geography", { opacity: 0, y: 38, duration: 0.7, ease: "power3.out" }, 30.25);
+    tl.from("#scene-geography .kicker", { opacity: 0, x: -42, duration: 0.5, ease: "expo.out" }, 30.45);
+    tl.from("#scene-geography .headline", { opacity: 0, y: 36, duration: 0.6, ease: "power2.out" }, 30.7);
+    tl.from("#scene-geography .map-board", { opacity: 0, scale: 0.96, duration: 0.55, ease: "back.out(1.2)" }, 31.05);
+
+    tl.from("#scene-culture", { opacity: 0, y: 34, duration: 0.7, ease: "power2.out" }, 81.25);
+    tl.from("#scene-culture .kicker", { opacity: 0, x: -36, duration: 0.5, ease: "circ.out" }, 81.45);
+    tl.from("#scene-culture .headline", { opacity: 0, scale: 0.95, duration: 0.62, ease: "expo.out" }, 81.72);
+    tl.from("#scene-culture .map-board", { opacity: 0, y: 28, duration: 0.55, ease: "power3.out" }, 82.08);
+
+    tl.from("#scene-development", { opacity: 0, y: 36, duration: 0.7, ease: "power3.out" }, 141.25);
+    tl.from("#scene-development .kicker", { opacity: 0, x: -46, duration: 0.5, ease: "expo.out" }, 141.45);
+    tl.from("#scene-development .headline", { opacity: 0, y: 34, duration: 0.62, ease: "back.out(1.1)" }, 141.72);
+    tl.from("#scene-development .chip", { opacity: 0, y: 24, stagger: 0.1, duration: 0.42, ease: "power2.out" }, 142.12);
 
     for (const caption of captions) {
       tl.set("#caption", { textContent: caption.text }, caption.start);
