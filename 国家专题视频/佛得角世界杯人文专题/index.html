@@ -168,6 +168,8 @@
     <video class="background-video" id="bg-geography" data-start="30" data-duration="51" data-track-index="0" src="assets/footage/clips/atlantic-drone.mp4" muted playsinline></video>
     <video class="background-video" id="bg-culture" data-start="81" data-duration="60" data-track-index="0" src="assets/footage/clips/morna-performance.mp4" muted playsinline></video>
     <video class="background-video" id="bg-development" data-start="141" data-duration="51" data-track-index="0" src="assets/footage/clips/sal-tourism.mp4" muted playsinline></video>
+    <video class="background-video" id="bg-football" data-start="192" data-duration="81" data-track-index="0" src="assets/footage/clips/blue-sharks-team.mp4" muted playsinline></video>
+    <video class="background-video" id="bg-argentina" data-start="273" data-duration="44" data-track-index="0" src="assets/footage/clips/fans-celebration.mp4" muted playsinline></video>
 
     <audio id="narration" data-start="0" data-duration="317" data-track-index="30" src="assets/audio/narration.wav" data-volume="1"></audio>
     <audio id="bgm" data-start="0" data-duration="317" data-track-index="31" src="assets/audio/bgm.mp3" data-volume="0.16"></audio>
@@ -221,6 +223,33 @@
       </div>
     </section>
 
+    <section class="clip scene" id="scene-football-rise" data-start="192" data-duration="81" data-track-index="14">
+      <div class="kicker">蓝鲨队为什么能游到这里</div>
+      <h2 class="headline">人口不大，但网络很大</h2>
+      <div class="data-board">
+        <div class="body">岛屿、欧洲联赛、移民家庭和国家队球衣，汇成同一个方向。</div>
+        <div class="chips">
+          <span class="chip">旅欧球员</span>
+          <span class="chip">Diaspora</span>
+          <span class="chip">三场平局出线</span>
+          <span class="chip">蓝鲨队</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="clip scene" id="scene-argentina-challenge" data-start="273" data-duration="44" data-track-index="15">
+      <div class="kicker">32 强 · ARG vs CPV</div>
+      <h2 class="headline">挑战世界冠军</h2>
+      <div class="match-board">
+        <div class="chips">
+          <span class="chip">阿根廷 · 卫冕冠军</span>
+          <span class="chip">佛得角 · 蓝鲨队</span>
+          <span class="chip">地图上的小国</span>
+          <span class="chip">世界最大的球场中央</span>
+        </div>
+      </div>
+    </section>
+
     <div class="clip transition" id="transition-bar" data-start="0" data-duration="317" data-track-index="40"></div>
     <div class="clip caption-layer" id="caption-layer" data-start="0" data-duration="317" data-track-index="41">
       <div class="caption" id="caption"></div>
@@ -239,7 +268,7 @@
     tl.from("#scene-cold .headline", { opacity: 0, scale: 0.92, duration: 0.65, ease: "back.out(1.4)" }, 0.65);
     tl.from("#scene-cold .chip", { opacity: 0, y: 30, stagger: 0.12, duration: 0.45, ease: "power2.out" }, 1.1);
 
-    const sceneStarts = [30, 81, 141];
+    const sceneStarts = [30, 81, 141, 192, 273];
     for (const start of sceneStarts) {
       tl.to("#transition-bar", { x: "205%", duration: 0.48, ease: "power3.inOut" }, start - 0.28);
       tl.set("#transition-bar", { x: "-105%" }, start + 0.32);
@@ -259,6 +288,18 @@
     tl.from("#scene-development .kicker", { opacity: 0, x: -46, duration: 0.5, ease: "expo.out" }, 141.45);
     tl.from("#scene-development .headline", { opacity: 0, y: 34, duration: 0.62, ease: "back.out(1.1)" }, 141.72);
     tl.from("#scene-development .chip", { opacity: 0, y: 24, stagger: 0.1, duration: 0.42, ease: "power2.out" }, 142.12);
+
+    tl.from("#scene-football-rise", { opacity: 0, y: 44, duration: 0.72, ease: "power3.out" }, 192.25);
+    tl.from("#scene-football-rise .kicker", { opacity: 0, x: -52, duration: 0.48, ease: "expo.out" }, 192.48);
+    tl.from("#scene-football-rise .headline", { opacity: 0, scale: 0.94, duration: 0.64, ease: "back.out(1.25)" }, 192.76);
+    tl.from("#scene-football-rise .data-board", { opacity: 0, y: 30, duration: 0.55, ease: "power2.out" }, 193.12);
+    tl.from("#scene-football-rise .chip", { opacity: 0, y: 24, stagger: 0.1, duration: 0.42, ease: "circ.out" }, 193.48);
+
+    tl.from("#scene-argentina-challenge", { opacity: 0, y: 40, duration: 0.72, ease: "power3.out" }, 273.25);
+    tl.from("#scene-argentina-challenge .kicker", { opacity: 0, x: -46, duration: 0.48, ease: "expo.out" }, 273.48);
+    tl.from("#scene-argentina-challenge .headline", { opacity: 0, scale: 0.92, duration: 0.64, ease: "back.out(1.4)" }, 273.76);
+    tl.from("#scene-argentina-challenge .match-board", { opacity: 0, y: 32, duration: 0.55, ease: "power2.out" }, 274.1);
+    tl.to("#scene-argentina-challenge", { opacity: 0, y: -30, duration: 0.9, ease: "power2.in" }, 315.7);
 
     for (const caption of captions) {
       tl.set("#caption", { textContent: caption.text }, caption.start);
