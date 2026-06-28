@@ -20,6 +20,10 @@ for (const asset of manifest.assets) {
   const duration = Number.parseFloat(durationRaw);
   if (!Number.isFinite(duration) || duration < 4) {
     errors.push(`clip ${clipPath} has invalid duration ${durationRaw}`);
+    continue;
+  }
+  if (typeof asset.duration === "number" && duration + 0.25 < asset.duration) {
+    errors.push(`clip ${clipPath} is ${duration.toFixed(2)}s, expected at least ${asset.duration}s`);
   }
 }
 

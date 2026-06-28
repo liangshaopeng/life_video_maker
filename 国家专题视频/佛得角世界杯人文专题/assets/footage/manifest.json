@@ -7,7 +7,7 @@
       "rawFile": "",
       "clipFile": "clips/stadium-lights.mp4",
       "start": 0,
-      "duration": 8,
+      "duration": 30,
       "note": "Generated dark Atlantic stadium texture for the cold open."
     },
     {
@@ -17,7 +17,7 @@
       "rawFile": "raw/cape-verde-travel.mp4",
       "clipFile": "clips/atlantic-drone.mp4",
       "start": 30,
-      "duration": 18,
+      "duration": 51,
       "note": "Use clean island coastline or aerial shot."
     },
     {
@@ -27,7 +27,7 @@
       "rawFile": "",
       "clipFile": "clips/fogo-volcano.mp4",
       "start": 40,
-      "duration": 15,
+      "duration": 23,
       "note": "Generated volcanic texture after YouTube segment returned HTTP 403."
     },
     {
@@ -37,7 +37,7 @@
       "rawFile": "",
       "clipFile": "clips/morna-performance.mp4",
       "start": 12,
-      "duration": 18,
+      "duration": 60,
       "note": "Generated warm cultural texture after the initial UNESCO YouTube URL was unavailable."
     },
     {
@@ -47,7 +47,7 @@
       "rawFile": "raw/dw-cape-verde.mp4",
       "clipFile": "clips/sal-tourism.mp4",
       "start": 80,
-      "duration": 18,
+      "duration": 51,
       "note": "Use tourism or beach economy visuals."
     },
     {
@@ -57,7 +57,7 @@
       "rawFile": "raw/cape-verde-underdog.mp4",
       "clipFile": "clips/blue-sharks-team.mp4",
       "start": 20,
-      "duration": 20,
+      "duration": 81,
       "note": "Use transformed short excerpt; avoid long match broadcast."
     },
     {
@@ -67,7 +67,7 @@
       "rawFile": "raw/fans-celebration.mp4",
       "clipFile": "clips/fans-celebration.mp4",
       "start": 5,
-      "duration": 15,
+      "duration": 44,
       "note": "Use celebration shot if downloadable and clean."
     }
   ]
