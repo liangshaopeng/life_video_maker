@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>佛的脚下凡，挑战世界冠军</title>
+  <style>
+    :root {
+      --atlantic-navy: #061B2E;
+      --deep-ocean: #0B3558;
+      --volcanic-black: #111217;
+      --cv-blue: #1A4FB3;
+      --flag-red: #D71920;
+      --flag-yellow: #F7D117;
+      --warm-white: #F6F2E8;
+      --data-gold: #E7B84A;
+      --font-cn: "Noto Sans SC", "Source Han Sans SC", "Hiragino Sans GB", sans-serif;
+      --font-latin: "Inter", Arial, sans-serif;
+    }
+
+    @font-face {
+      font-family: "VideoCN";
+      src: local("Hiragino Sans GB");
+      font-weight: 300 900;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background: var(--volcanic-black);
+      overflow: hidden;
+      font-family: "VideoCN", sans-serif;
+      color: var(--warm-white);
+    }
+
+    #cape-verde-main {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: var(--atlantic-navy);
+    }
+
+    video.background-video,
+    .scene,
+    .transition,
+    .caption-layer {
+      position: absolute;
+      inset: 0;
+    }
+
+    video.background-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.95) contrast(1.05);
+    }
+
+    .scene {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: 84px 110px;
+      gap: 28px;
+      opacity: 0;
+      z-index: 5;
+    }
+
+    .scene::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 22% 18%, rgba(26, 79, 179, 0.26), transparent 30%),
+        linear-gradient(90deg, rgba(6, 27, 46, 0.88), rgba(6, 27, 46, 0.38), rgba(17, 18, 23, 0.78));
+      z-index: -1;
+    }
+
+    .kicker {
+      width: fit-content;
+      max-width: 980px;
+      padding: 10px 18px;
+      border-left: 6px solid var(--flag-yellow);
+      background: rgba(6, 27, 46, 0.72);
+      color: var(--flag-yellow);
+      font: 700 30px/1.2 "VideoCN", sans-serif;
+    }
+
+    .headline {
+      max-width: 1120px;
+      margin: 0;
+      font: 900 86px/1.05 "VideoCN", sans-serif;
+      letter-spacing: 0;
+      text-wrap: balance;
+      text-shadow: 0 12px 34px rgba(0, 0, 0, 0.45);
+    }
+
+    .body {
+      max-width: 980px;
+      font: 500 36px/1.45 "VideoCN", sans-serif;
+      color: rgba(246, 242, 232, 0.92);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      max-width: 1180px;
+    }
+
+    .chip {
+      padding: 12px 20px;
+      border: 1px solid rgba(247, 209, 23, 0.46);
+      background: rgba(11, 53, 88, 0.74);
+      color: var(--warm-white);
+      font: 700 28px/1.2 "VideoCN", sans-serif;
+    }
+
+    .map-board,
+    .data-board,
+    .match-board {
+      width: min(1180px, 72vw);
+      min-height: 280px;
+      padding: 34px;
+      box-sizing: border-box;
+      border: 1px solid rgba(246, 242, 232, 0.18);
+      background: rgba(6, 27, 46, 0.78);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.32);
+    }
+
+    .caption-layer {
+      z-index: 20;
+      pointer-events: none;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0 180px 66px;
+      box-sizing: border-box;
+    }
+
+    .caption {
+      min-width: 420px;
+      max-width: 1240px;
+      padding: 14px 28px 18px;
+      background: rgba(17, 18, 23, 0.78);
+      border-bottom: 5px solid var(--flag-yellow);
+      color: var(--warm-white);
+      text-align: center;
+      font: 800 42px/1.2 "VideoCN", sans-serif;
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .transition {
+      z-index: 18;
+      pointer-events: none;
+      transform: translateX(-105%);
+      background: linear-gradient(90deg, var(--flag-red), var(--flag-yellow), var(--cv-blue));
+    }
+  </style>
+</head>
+<body>
+  <div id="cape-verde-main" data-composition-id="cape-verde-main" data-width="1920" data-height="1080" data-start="0" data-duration="317" data-track-index="100">
+    <video class="background-video" id="bg-cold" data-start="0" data-duration="30" data-track-index="0" src="assets/footage/clips/stadium-lights.mp4" muted playsinline></video>
+
+    <audio id="narration" data-start="0" data-duration="317" data-track-index="30" src="assets/audio/narration.wav" data-volume="1"></audio>
+    <audio id="bgm" data-start="0" data-duration="317" data-track-index="31" src="assets/audio/bgm.mp3" data-volume="0.16"></audio>
+
+    <section class="clip scene" id="scene-cold" data-start="0" data-duration="30" data-track-index="10">
+      <div class="kicker">2026 世界杯 · 32 强</div>
+      <h1 class="headline">佛的脚下凡，挑战世界冠军</h1>
+      <div class="chips">
+        <span class="chip">佛得角 Cabo Verde</span>
+        <span class="chip">蓝鲨队</span>
+        <span class="chip">下一站：阿根廷</span>
+      </div>
+    </section>
+
+    <div class="clip transition" id="transition-bar" data-start="0" data-duration="317" data-track-index="40"></div>
+    <div class="clip caption-layer" id="caption-layer" data-start="0" data-duration="317" data-track-index="41">
+      <div class="caption" id="caption"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <script type="module">
+    import { captions } from "./data/captions.js";
+
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+
+    tl.from("#scene-cold", { opacity: 0, y: 45, duration: 0.7, ease: "power3.out" }, 0.2);
+    tl.from("#scene-cold .kicker", { opacity: 0, x: -60, duration: 0.5, ease: "expo.out" }, 0.45);
+    tl.from("#scene-cold .headline", { opacity: 0, scale: 0.92, duration: 0.65, ease: "back.out(1.4)" }, 0.65);
+    tl.from("#scene-cold .chip", { opacity: 0, y: 30, stagger: 0.12, duration: 0.45, ease: "power2.out" }, 1.1);
+
+    for (const caption of captions) {
+      tl.set("#caption", { textContent: caption.text }, caption.start);
+      tl.to("#caption", { opacity: 1, y: 0, duration: 0.18, ease: "power2.out" }, caption.start);
+      tl.to("#caption", { opacity: 0, y: 24, duration: 0.16, ease: "power2.in" }, Math.max(caption.start, caption.end - 0.16));
+    }
+
+    window.__timelines["cape-verde-main"] = tl;
+  </script>
+</body>
+</html>

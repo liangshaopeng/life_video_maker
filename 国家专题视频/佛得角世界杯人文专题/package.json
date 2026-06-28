@@ -6,7 +6,7 @@
     "verify:data": "node scripts/verify-story-data.mjs",
     "check:assets": "node scripts/check-assets.mjs",
     "lint": "npx hyperframes lint",
-    "inspect": "npx hyperframes inspect --samples 15",
+    "inspect": "npx hyperframes inspect --samples 15 --timeout 20000",
     "preview": "npx hyperframes preview --port 3028",
     "render:draft": "npx hyperframes render --quality draft --output renders/cape-verde-draft.mp4",
     "render:final": "npx hyperframes render --quality high --fps 30 --output renders/cape-verde-final.mp4",
