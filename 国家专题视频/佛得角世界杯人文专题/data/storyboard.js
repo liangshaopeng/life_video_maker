@@ -3,7 +3,7 @@ export const storyboard = [
     id: "cold-open",
     title: "佛的脚下凡",
     start: 0,
-    duration: 35,
+    duration: 30,
     assetIds: ["stadium-lights", "cape-verde-flag"],
     keywords: ["佛的脚", "挑战阿根廷", "世界杯淘汰赛"],
     narration:
@@ -12,8 +12,8 @@ export const storyboard = [
   {
     id: "geography",
     title: "不是一个角，是一片群岛",
-    start: 35,
-    duration: 60,
+    start: 30,
+    duration: 51,
     assetIds: ["atlantic-drone", "fogo-volcano"],
     keywords: ["大西洋", "十座主岛", "普拉亚"],
     narration:
@@ -22,8 +22,8 @@ export const storyboard = [
   {
     id: "culture",
     title: "海风里的文化",
-    start: 95,
-    duration: 70,
+    start: 81,
+    duration: 60,
     assetIds: ["morna-performance"],
     keywords: ["葡语世界", "Kriolu", "Morna", "Morabeza"],
     narration:
@@ -32,8 +32,8 @@ export const storyboard = [
   {
     id: "development",
     title: "美丽和现实",
-    start: 165,
-    duration: 60,
+    start: 141,
+    duration: 51,
     assetIds: ["sal-tourism"],
     keywords: ["旅游", "侨汇", "水资源", "服务业"],
     narration:
@@ -42,8 +42,8 @@ export const storyboard = [
   {
     id: "football-rise",
     title: "蓝鲨队为什么能游到这里",
-    start: 225,
-    duration: 95,
+    start: 192,
+    duration: 81,
     assetIds: ["blue-sharks-team", "fans-celebration"],
     keywords: ["蓝鲨队", "旅欧球员", "三场平局", "国家认同"],
     narration:
@@ -52,8 +52,8 @@ export const storyboard = [
   {
     id: "argentina-challenge",
     title: "挑战世界冠军",
-    start: 320,
-    duration: 50,
+    start: 273,
+    duration: 44,
     assetIds: ["fans-celebration", "cape-verde-flag"],
     keywords: ["阿根廷", "世界冠军", "地图上的小国"],
     narration:
@@ -61,4 +61,4 @@ export const storyboard = [
   }
 ];
 
-export const targetDuration = 370;
+export const targetDuration = 317;
