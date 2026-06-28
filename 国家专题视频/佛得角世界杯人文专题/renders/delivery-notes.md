@@ -6,7 +6,7 @@
 - Format: horizontal 16:9, 1920x1080, 30fps
 - Duration: 225.02 seconds
 - Audio: faster Chinese male narration + locally generated BGM
-- Size: 349,057,006 bytes
+- Size: 346,886,339 bytes
 
 ## Revision Focus
 
@@ -15,6 +15,7 @@
 - Rebuilt visuals as clear primary video cuts: 8 scene clips are preassembled into `assets/footage/clips/main-cut.mp4`, then overlaid with title/data/caption layers.
 - Replaced generated fallback textures with real higher-resolution footage where possible, including live Morna performance and 1080p football/fan clips.
 - Generated captions from Edge TTS VTT timing, capped at 22 characters for faster narration.
+- Moved captions into a top-center player-safe band so bottom playback controls no longer cover subtitles.
 
 ## Footage Sources
 
@@ -66,4 +67,4 @@ Latest verification:
 - HyperFrames lint: 0 errors, 0 warnings
 - HyperFrames inspect: 0 layout issues across 15 samples
 - Render: 225.02s, 1920x1080, 1 audio stream
-- Visual QA: contact sheet and full-resolution samples generated in `renders/`
+- Visual QA: contact sheet, full-resolution samples, and `renders/frame-subtitle-safe-0041.jpg` generated in `renders/`
