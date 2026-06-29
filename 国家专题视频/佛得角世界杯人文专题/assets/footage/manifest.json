@@ -1,0 +1,94 @@
+{
+  "assets": [
+    {
+      "id": "hook-main",
+      "role": "cold open quick-cut football and fans",
+      "sourceUrl": "https://www.youtube.com/watch?v=JreiAoc6HFk; https://www.youtube.com/watch?v=GpjhEESO1gI; https://www.youtube.com/watch?v=n518CDsVG4w",
+      "rawFile": "raw-hq/underdog-a.mp4; raw-hq/fans-celebration-hq.mp4; raw-hq/travel-a.mp4; raw-hq/fans-b.mp4",
+      "clipFile": "clips/hook-main.mp4",
+      "start": 0,
+      "duration": 30,
+      "note": "Fast-cut opener using real 1080p football, celebration, and island visuals."
+    },
+    {
+      "id": "geography-main",
+      "role": "island geography and Atlantic context",
+      "sourceUrl": "https://www.youtube.com/watch?v=n518CDsVG4w; https://www.youtube.com/watch?v=4wjlZ_RKHk8",
+      "rawFile": "raw-hq/travel-a.mp4; raw-hq/travel-b.mp4; raw-hq/dw-a.mp4",
+      "clipFile": "clips/geography-main.mp4",
+      "start": 30,
+      "duration": 26,
+      "note": "Clear island and coastline sequence for the map/geography section."
+    },
+    {
+      "id": "culture-main",
+      "role": "Morna and cultural identity",
+      "sourceUrl": "https://www.youtube.com/watch?v=R_o9oekNf7c; https://www.youtube.com/watch?v=n518CDsVG4w",
+      "rawFile": "raw-hq/morna-live.mp4; raw-hq/travel-b.mp4",
+      "clipFile": "clips/culture-main.mp4",
+      "start": 56,
+      "duration": 28,
+      "note": "Live Morna performance and island footage replace the older generated texture."
+    },
+    {
+      "id": "development-main",
+      "role": "tourism economy and island constraints",
+      "sourceUrl": "https://www.youtube.com/watch?v=4wjlZ_RKHk8; https://www.youtube.com/watch?v=n518CDsVG4w",
+      "rawFile": "raw-hq/dw-a.mp4; raw-hq/dw-b.mp4; raw-hq/travel-b.mp4",
+      "clipFile": "clips/development-main.mp4",
+      "start": 84,
+      "duration": 27,
+      "note": "Tourism and island infrastructure footage for the development section."
+    },
+    {
+      "id": "football-network-main",
+      "role": "Blue Sharks diaspora football network",
+      "sourceUrl": "https://www.youtube.com/watch?v=JreiAoc6HFk; https://www.youtube.com/watch?v=GpjhEESO1gI",
+      "rawFile": "raw-hq/underdog-a.mp4; raw-hq/underdog-b.mp4; raw-hq/fans-b.mp4",
+      "clipFile": "clips/football-network-main.mp4",
+      "start": 111,
+      "duration": 30,
+      "note": "Football feature footage used as the primary image, not a blurred background."
+    },
+    {
+      "id": "football-system-main",
+      "role": "World Cup group survival and fan emotion",
+      "sourceUrl": "https://www.youtube.com/watch?v=JreiAoc6HFk; https://www.youtube.com/watch?v=GpjhEESO1gI",
+      "rawFile": "raw-hq/underdog-b.mp4; raw-hq/fans-celebration-hq.mp4; raw-hq/underdog-a.mp4; raw-hq/fans-b.mp4",
+      "clipFile": "clips/football-system-main.mp4",
+      "start": 141,
+      "duration": 27,
+      "note": "Fast football and celebration sequence for the tactical-tournament argument."
+    },
+    {
+      "id": "argentina-main",
+      "role": "Argentina challenge setup",
+      "sourceUrl": "https://www.youtube.com/watch?v=GpjhEESO1gI; https://www.youtube.com/watch?v=JreiAoc6HFk",
+      "rawFile": "raw-hq/fans-b.mp4; raw-hq/underdog-b.mp4; raw-hq/fans-celebration-hq.mp4",
+      "clipFile": "clips/argentina-main.mp4",
+      "start": 168,
+      "duration": 28,
+      "note": "Supporter and football clips for the knockout pressure section."
+    },
+    {
+      "id": "close-main",
+      "role": "closing island-to-football montage",
+      "sourceUrl": "https://www.youtube.com/watch?v=n518CDsVG4w; https://www.youtube.com/watch?v=GpjhEESO1gI; https://www.youtube.com/watch?v=JreiAoc6HFk",
+      "rawFile": "raw-hq/travel-a.mp4; raw-hq/travel-b.mp4; raw-hq/fans-b.mp4; raw-hq/underdog-b.mp4",
+      "clipFile": "clips/close-main.mp4",
+      "start": 196,
+      "duration": 29,
+      "note": "Closing montage connects geography, supporters, and football identity."
+    },
+    {
+      "id": "main-cut",
+      "role": "single clear master visual cut",
+      "sourceUrl": "assembled-from-scene-clips",
+      "rawFile": "clips/hook-main.mp4; clips/geography-main.mp4; clips/culture-main.mp4; clips/development-main.mp4; clips/football-network-main.mp4; clips/football-system-main.mp4; clips/argentina-main.mp4; clips/close-main.mp4",
+      "clipFile": "clips/main-cut.mp4",
+      "start": 0,
+      "duration": 225,
+      "note": "Final visual bed with all scene cuts preassembled, so HyperFrames loads one clear video instead of eight large media nodes."
+    }
+  ]
+}

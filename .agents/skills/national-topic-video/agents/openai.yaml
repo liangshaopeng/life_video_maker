@@ -1,0 +1,4 @@
+interface:
+  display_name: "国家专题视频"
+  short_description: "制作国家地区人文体育专题成片的 HyperFrames 工作流"
+  default_prompt: "Use $national-topic-video to create a sharp researched country or region feature video with Chinese narration, real footage, captions, and HyperFrames rendering."

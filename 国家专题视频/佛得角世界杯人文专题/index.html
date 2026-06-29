@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>佛的脚下凡，挑战世界冠军</title>
+  <style>
+    :root {
+      --ink: #05070A;
+      --night: #071423;
+      --blue: #1647A6;
+      --red: #D71920;
+      --yellow: #F7D117;
+      --white: #F6F2E8;
+      --cyan: #6ED7FF;
+      --green: #27C56E;
+    }
+
+    @font-face {
+      font-family: "VideoCN";
+      src: local("Hiragino Sans GB");
+      font-weight: 300 900;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: var(--ink);
+      color: var(--white);
+      font-family: "VideoCN", sans-serif;
+    }
+
+    #cape-verde-main {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    .main-video,
+    .scene,
+    .caption-layer {
+      position: absolute;
+      inset: 0;
+    }
+
+    .main-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.08) contrast(1.06) brightness(0.96);
+    }
+
+    .scene {
+      z-index: 8;
+      display: flex;
+      align-items: flex-end;
+      box-sizing: border-box;
+      padding: 68px 88px 158px;
+      pointer-events: none;
+    }
+
+    .scene::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(3, 6, 10, 0.78) 0%, rgba(3, 6, 10, 0.44) 35%, rgba(3, 6, 10, 0.05) 76%),
+        linear-gradient(0deg, rgba(3, 6, 10, 0.62) 0%, rgba(3, 6, 10, 0.08) 42%, rgba(3, 6, 10, 0.22) 100%);
+    }
+
+    .scene-content {
+      width: 1040px;
+      max-width: 1040px;
+    }
+
+    .overline {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding: 8px 14px 9px 0;
+      border-bottom: 4px solid var(--yellow);
+      color: var(--yellow);
+      font: 900 30px/1.1 "VideoCN", sans-serif;
+    }
+
+    .overline::before {
+      content: "";
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      background: var(--red);
+    }
+
+    .headline {
+      margin: 0;
+      color: var(--white);
+      font: 900 78px/1.04 "VideoCN", sans-serif;
+      letter-spacing: 0;
+      text-wrap: balance;
+      text-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+    }
+
+    #scene-hook .headline {
+      font-size: 106px;
+      max-width: 880px;
+    }
+
+    .takeaway {
+      max-width: 940px;
+      margin-top: 20px;
+      padding-left: 22px;
+      border-left: 7px solid var(--cyan);
+      color: rgba(246, 242, 232, 0.96);
+      font: 800 38px/1.26 "VideoCN", sans-serif;
+      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.62);
+    }
+
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+      max-width: 980px;
+    }
+
+    .stat {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 8px 16px;
+      box-sizing: border-box;
+      border: 1px solid rgba(246, 242, 232, 0.34);
+      background: rgba(5, 7, 10, 0.64);
+      color: var(--white);
+      font: 900 28px/1.1 "VideoCN", sans-serif;
+    }
+
+    .stat.heat {
+      border-color: rgba(247, 209, 23, 0.78);
+      background: rgba(215, 25, 32, 0.76);
+      color: #fff8d0;
+    }
+
+    .corner-score {
+      position: absolute;
+      top: 58px;
+      right: 72px;
+      display: grid;
+      grid-template-columns: auto auto;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: rgba(5, 7, 10, 0.68);
+      border: 1px solid rgba(246, 242, 232, 0.26);
+      font: 900 30px/1 "VideoCN", sans-serif;
+    }
+
+    .corner-score span {
+      color: var(--yellow);
+    }
+
+    .transition {
+      position: absolute;
+      z-index: 18;
+      top: 0;
+      bottom: 0;
+      left: -42%;
+      width: 36%;
+      background: linear-gradient(90deg, var(--red), var(--yellow), var(--blue));
+      transform: skewX(-12deg);
+      pointer-events: none;
+    }
+
+    .caption-layer {
+      z-index: 30;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: 84px 230px 0;
+      pointer-events: none;
+    }
+
+    .caption {
+      min-width: 360px;
+      max-width: 1060px;
+      min-height: 54px;
+      padding: 10px 24px 13px;
+      box-sizing: border-box;
+      background: rgba(5, 7, 10, 0.86);
+      border-top: 5px solid var(--yellow);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.36);
+      color: var(--white);
+      text-align: center;
+      font: 900 38px/1.18 "VideoCN", sans-serif;
+      opacity: 0;
+      transform: translateY(22px);
+    }
+  </style>
+</head>
+<body>
+  <div id="cape-verde-main" data-composition-id="cape-verde-main" data-width="1920" data-height="1080" data-start="0" data-duration="225" data-track-index="100">
+    <video class="clip main-video" id="video-main-cut" data-start="0" data-duration="225" data-track-index="0" src="assets/footage/clips/main-cut.mp4" muted playsinline></video>
+
+    <audio class="clip" id="narration" data-start="0" data-duration="224.784" data-track-index="30" src="assets/audio/narration.mp3" data-volume="1.08"></audio>
+    <audio class="clip" id="bgm" data-start="0" data-duration="225" data-track-index="31" src="assets/audio/bgm.mp3" data-volume="0.13"></audio>
+
+    <section class="clip scene" id="scene-hook" data-start="0" data-duration="30" data-track-index="10" data-layout-allow-occlusion>
+      <div class="corner-score"><span>CPV</span> 32 强</div>
+      <div class="scene-content">
+        <div class="overline">先别划走</div>
+        <h1 class="headline">佛的脚下凡</h1>
+        <div class="takeaway">淘汰赛第一关，直接踩到世界冠军阿根廷面前。</div>
+        <div class="stat-row">
+          <span class="stat heat">三连平出线</span>
+          <span class="stat">人口不到 60 万</span>
+          <span class="stat">小国生存法</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="clip scene" id="scene-geography" data-start="30" data-duration="26" data-track-index="11" data-layout-allow-occlusion>
+      <div class="corner-score"><span>10</span> 主岛</div>
+      <div class="scene-content">
+        <div class="overline">地理不是冷知识</div>
+        <h2 class="headline">不是一个角，是海上的路</h2>
+        <div class="takeaway">非洲西岸外，火山、港口、海风和迁徙拴成一个国家。</div>
+        <div class="stat-row">
+          <span class="stat">普拉亚</span>
+          <span class="stat">明德卢</span>
+          <span class="stat">福戈火山</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="clip scene" id="scene-culture" data-start="56" data-duration="28" data-track-index="12" data-layout-allow-occlusion>
+      <div class="corner-score"><span>Morna</span> 非遗</div>
+      <div class="scene-content">
+        <div class="overline">温柔，但骨头很硬</div>
+        <h2 class="headline">漂泊感，是文化底色</h2>
+        <div class="takeaway">葡语、Kriolu、非洲节奏和大西洋乡愁，混成蓝鲨队的精神底盘。</div>
+        <div class="stat-row">
+          <span class="stat">Kriolu</span>
+          <span class="stat">Morna</span>
+          <span class="stat">离开，再回来</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="clip scene" id="scene-development" data-start="84" data-duration="27" data-track-index="13" data-layout-allow-occlusion>
+      <div class="corner-score"><span>现实</span> 不梦幻</div>
+      <div class="scene-content">
+        <div class="overline">海滩背后的现实</div>
+        <h2 class="headline">漂亮，但不轻松</h2>
+        <div class="takeaway">旅游赚钱，水资源、进口依赖和外部市场，也会一起变脸。</div>
+        <div class="stat-row">
+          <span class="stat">旅游经济</span>
+          <span class="stat">淡水压力</span>
+          <span class="stat heat">侨汇血管</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="clip scene" id="scene-football-network" data-start="111" data-duration="30" data-track-index="14" data-layout-allow-occlusion>
+      <div class="corner-score"><span>Blue</span> Sharks</div>
+      <div class="scene-content">
+        <div class="overline">人口小，但网络大</div>
+        <h2 class="headline">小国足球，靠全球球员池</h2>
+        <div class="takeaway">欧洲联赛、移民家庭、岛上街球，被重新拉回同一件球衣。</div>
+        <div class="stat-row">
+          <span class="stat">旅欧经验</span>
+          <span class="stat">Diaspora</span>
+          <span class="stat heat">LinkedIn 故事</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="clip scene" id="scene-football-system" data-start="141" data-duration="27" data-track-index="15" data-layout-allow-occlusion>
+      <div class="corner-score"><span>3</span> 场平局</div>
+      <div class="scene-content">
+        <div class="overline">不是童话，是系统</div>
+        <h2 class="headline">三连平不是苟</h2>
+        <div class="takeaway">杯赛奖励的是少犯错、少崩盘、最后十分钟还咬得住。</div>
+        <div class="stat-row">
+          <span class="stat">容错率</span>
+          <span class="stat">小组第二</span>
+          <span class="stat heat">活下来</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="clip scene" id="scene-argentina" data-start="168" data-duration="28" data-track-index="16" data-layout-allow-occlusion>
+      <div class="corner-score"><span>ARG</span> vs CPV</div>
+      <div class="scene-content">
+        <div class="overline">下一关，阿根廷</div>
+        <h2 class="headline">压力来到冠军这边</h2>
+        <div class="takeaway">佛得角不是热门，但淘汰赛最可怕的，就是焦虑会往强队身上爬。</div>
+        <div class="stat-row">
+          <span class="stat">卫冕冠军</span>
+          <span class="stat">蓝鲨队</span>
+          <span class="stat heat">心理窒息感</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="clip scene" id="scene-close" data-start="196" data-duration="29" data-track-index="17" data-layout-allow-occlusion>
+      <div class="corner-score"><span>CPV</span> 被看见</div>
+      <div class="scene-content">
+        <div class="overline">小国足球最犀利的反击</div>
+        <h2 class="headline">你可以小，但不能散</h2>
+        <div class="takeaway">地理、侨民、文化和足球拧成一股力量，世界就必须认真听见。</div>
+        <div class="stat-row">
+          <span class="stat">从群岛到淘汰赛</span>
+          <span class="stat heat">挑战世界冠军</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="clip transition" id="transition-bar" data-start="0" data-duration="225" data-track-index="40"></div>
+    <div class="clip caption-layer" id="caption-layer" data-start="0" data-duration="225" data-track-index="41" data-layout-allow-occlusion>
+      <div class="caption" id="caption"></div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script type="module">
+    import { captions } from "./data/captions.js";
+
+    window.__timelines = window.__timelines || {};
+    const tl = gsap.timeline({ paused: true });
+
+    const scenes = [
+      { id: "scene-hook", start: 0, duration: 30 },
+      { id: "scene-geography", start: 30, duration: 26 },
+      { id: "scene-culture", start: 56, duration: 28 },
+      { id: "scene-development", start: 84, duration: 27 },
+      { id: "scene-football-network", start: 111, duration: 30 },
+      { id: "scene-football-system", start: 141, duration: 27 },
+      { id: "scene-argentina", start: 168, duration: 28 },
+      { id: "scene-close", start: 196, duration: 29 }
+    ];
+
+    for (const scene of scenes) {
+      const root = `#${scene.id}`;
+      const lead = scene.start + 0.18;
+      tl.from(`${root} .overline`, { opacity: 0, x: -54, duration: 0.34, ease: "power3.out" }, lead);
+      tl.from(`${root} .headline`, { opacity: 0, y: 42, duration: 0.44, ease: "expo.out" }, lead + 0.12);
+      tl.from(`${root} .takeaway`, { opacity: 0, x: -34, duration: 0.36, ease: "power2.out" }, lead + 0.28);
+      tl.from(`${root} .stat`, { opacity: 0, y: 22, stagger: 0.07, duration: 0.28, ease: "power2.out" }, lead + 0.42);
+      tl.from(`${root} .corner-score`, { opacity: 0, y: -22, duration: 0.36, ease: "back.out(1.3)" }, lead + 0.1);
+      tl.to(root, { opacity: 0, y: -18, duration: 0.36, ease: "power2.in" }, scene.start + scene.duration - 0.38);
+    }
+
+    for (const start of scenes.slice(1).map((scene) => scene.start)) {
+      tl.set("#transition-bar", { left: "-42%" }, start - 0.12);
+      tl.to("#transition-bar", { left: "112%", duration: 0.34, ease: "power3.inOut" }, start - 0.12);
+    }
+
+    for (const caption of captions) {
+      tl.set("#caption", { textContent: caption.text }, caption.start);
+      tl.to("#caption", { opacity: 1, y: 0, duration: 0.12, ease: "power2.out" }, caption.start);
+      tl.to("#caption", { opacity: 0, y: 22, duration: 0.1, ease: "power2.in" }, Math.max(caption.start, caption.end - 0.1));
+    }
+
+    window.__timelines["cape-verde-main"] = tl;
+  </script>
+</body>
+</html>

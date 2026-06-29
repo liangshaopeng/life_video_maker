@@ -52,6 +52,7 @@
 # ---- 渲染中间产物目录 (build artifacts) ----
 build/
 _bak_resume/
+**/assets/footage/work/
 .worktrees
 .worktrees/
 
