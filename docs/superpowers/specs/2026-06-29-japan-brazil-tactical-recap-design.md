@@ -157,6 +157,7 @@ Purpose:
 
 - Return to the central thesis and explain why the result happened.
 - Keep the conclusion analytical rather than tribal.
+- End with the author's fixed slogan as both narration and visible caption: `关注思考的我，AI看世界！`
 
 Ending logic depends on the result:
 
@@ -210,6 +211,7 @@ Writing rules:
 - Keep player names in natural Chinese display form and add every recurring name to `no_split`.
 - Avoid unsupported claims such as "best in the tournament" unless the narration frames them as pre-match reputation and the source supports it.
 - Use neutral labels: "日本", "蓝武士", "巴西", "桑巴军团", "安切洛蒂", "森保一".
+- The final narration line must be exactly: `关注思考的我，AI看世界！`
 
 Overlay rules:
 
@@ -251,6 +253,7 @@ Completion requires concrete checks:
 - Every goal row in `build/gverify/WALL_goals.png` visibly shows the scoring process, not only celebration.
 - `build/subs/seg*.srt` is inspected for broken foreign names, awkward fragments, and isolated single characters.
 - Opening frame is checked so the first second has a strong match signal.
+- Final caption/audio check confirms the closing slogan appears exactly as `关注思考的我，AI看世界！`
 - Final output is verified as 1080x1920, 30fps, and within the 4-5 minute target unless extra time requires a slightly longer cut.
 
 ## Risks And Mitigations
@@ -279,4 +282,5 @@ The final video is successful when it feels like a complete tactical recap rathe
 - The stance stays neutral and professional.
 - Narration is energetic but smooth.
 - Captions, overlays, and footage align cleanly.
+- The closing slogan is present in the final narration and visible caption.
 - The final cut preserves both match drama and tactical clarity across 4-5 minutes.
